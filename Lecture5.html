@@ -1,0 +1,712 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lecture 5: Conservation of energy and momentum &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture5';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications" href="Lecture6.html" />
+    <link rel="prev" title="Lecture 4: Motion and forces in 2 and 3 dimensions" href="Lecture4.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture5.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture5.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 5: Conservation of energy and momentum</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-conservation">Momentum conservation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collisions">Collisions</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="lecture-5-conservation-of-energy-and-momentum">
+<h1>Lecture 5: Conservation of energy and momentum<a class="headerlink" href="#lecture-5-conservation-of-energy-and-momentum" title="Link to this heading">#</a></h1>
+<section id="conservation-of-energy">
+<h2>Conservation of energy<a class="headerlink" href="#conservation-of-energy" title="Link to this heading">#</a></h2>
+<p>In the problem set of lecture 1 we saw that the work <span class="math notranslate nohighlight">\(W\)</span> done on an object by a conservative force <span class="math notranslate nohighlight">\(F\)</span> along a (one-dimensional) path is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a644a8cd-b814-4eaa-8e35-21cf36324396">
+<span class="eqno">(78)<a class="headerlink" href="#equation-a644a8cd-b814-4eaa-8e35-21cf36324396" title="Permalink to this equation">#</a></span>\[\begin{align}
+ W = \int_{x_0}^{x_1} F \, \d x = - \int_{x_0}^{x_1} \frac{\d V}{\d x} \, \d x = V(x_0) - V(x_1)\, .
+\end{align}\]</div>
+<p>Using Newton’s second law, <span class="math notranslate nohighlight">\(F = \d p/\d t\)</span>, we can relate the potential change between two positions to the change in momentum:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cdee6775-76c3-4006-b3c8-3eb12c88027a">
+<span class="eqno">(79)<a class="headerlink" href="#equation-cdee6775-76c3-4006-b3c8-3eb12c88027a" title="Permalink to this equation">#</a></span>\[\begin{align}
+ V(x) - V(x_0) &amp; = - \int_{x_0}^x \frac{\d p}{\d t} \d x = - \int_{p(x_0)}^{p(x)} v\, \d p = - \int_{p(x_0)}^{p(x)} \frac{p}{m}\, \d p = - \left[ \frac{p^2}{2m}\right]_{p(x_0)}^{p(x)} \cr
+ &amp; = -\left(\frac{p(x)^2}{2m} - \frac{p(x_0)^2}{2m}\right)\, .
+\end{align}\]</div>
+<p>You will recognise the right-hand side in the last line as the change of kinetic energy <span class="math notranslate nohighlight">\(T\)</span> of the object, and this means that without any further effects on the object, the potential energy is transformed into kinetic energy. As the potential energy decreases, or <span class="math notranslate nohighlight">\(V(x) &lt; V(x_0)\)</span>, the kinetic energy increases and vice versa. Bringing everything to the left-had side of the equation, we end up with an expression for the conservation of energy:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2025053f-523e-4782-a448-b49e9b96119e">
+<span class="eqno">(80)<a class="headerlink" href="#equation-2025053f-523e-4782-a448-b49e9b96119e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \Delta V + \Delta T = 0\, ,
+\end{align}\]</div>
+<p>where we denote changes by the greek letter <span class="math notranslate nohighlight">\(\Delta\)</span> (pronounced “delta”). Note that this is a statement about <em>changes</em>. We can roll a marble down a ramp in the basement or in the penthouse (assuming constant <span class="math notranslate nohighlight">\(g\)</span>), and we will get the same results for the change in kinetic energy even though the potential energy of the marble in the penthouse is much greater than in the basement. Conservation of energy applies to the changes in energy in a process.</p>
+<p>This is a special case of a broader conservation principle: the total energy in a closed system is conserved. It doesn’t mean that energy is always in a useful form. For example, when a friction force slows down a block sliding down a ramp, the final velocity is lower than if all potential energy was converted into kinetic energy. The `missing’ energy has become the heat generated by the friction between the block and the ramp. It is typically not possible to recover this form of energy, but when we take it into account the total energy in the system is conserved.</p>
+<p>When working with energy conservation in practical problems, we often compare the initial state of our physical system to its final state and do some simple book keeping. In the example above, the energy of the initial state, with the block at rest atop the ramp at height <span class="math notranslate nohighlight">\(h\)</span>, is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4cf99613-d947-42b5-8aab-3722027f37ff">
+<span class="eqno">(81)<a class="headerlink" href="#equation-4cf99613-d947-42b5-8aab-3722027f37ff" title="Permalink to this equation">#</a></span>\[\begin{align}
+ E_{\rm before} = mgh\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m\)</span> is the mass of the block. The energy of the final state, at the bottom of the ramp, is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-116e4c5a-3498-4e20-9480-541ba49ac054">
+<span class="eqno">(82)<a class="headerlink" href="#equation-116e4c5a-3498-4e20-9480-541ba49ac054" title="Permalink to this equation">#</a></span>\[\begin{align}
+ E_{\rm after} = \frac12 m v^2 + Q\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(v\)</span> is the final speed of the block and <span class="math notranslate nohighlight">\(Q\)</span> is the heat generated by the friction. When there is no friction, we can calculate <span class="math notranslate nohighlight">\(v\)</span> from <span class="math notranslate nohighlight">\(h\)</span>. If there is friction, we can determine the heat it generates by measuring <span class="math notranslate nohighlight">\(v\)</span> and using energy conservation: <span class="math notranslate nohighlight">\(E_{\rm after} = E_{\rm before}\)</span>, or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-28b71ff5-a8b9-43e3-b1b0-6debe7d2b83f">
+<span class="eqno">(83)<a class="headerlink" href="#equation-28b71ff5-a8b9-43e3-b1b0-6debe7d2b83f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ Q = mgh - \frac12 m v^2\, .
+\end{align}\]</div>
+<p>We will use this method when we discuss collisions a bit later on. It will be critical to determine whether there is any heat generated in a collision, so you can tell whether you can use energy conservation for the particles that are colliding.</p>
+</section>
+<section id="momentum-conservation">
+<h2>Momentum conservation<a class="headerlink" href="#momentum-conservation" title="Link to this heading">#</a></h2>
+<p>Another important law of physics is the conservation of momentum: for any system that does not experience a net external force, its momentum is conserved. For a single particle this is simply Newton’s second law:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-801354e1-497e-4e02-a91d-c4613da0f2ad">
+<span class="eqno">(84)<a class="headerlink" href="#equation-801354e1-497e-4e02-a91d-c4613da0f2ad" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F = 0 \quad \to\quad \frac{\d\p}{\d t} = 0\, .
+\end{align}\]</div>
+<p>However, we saw that this law also holds for composite bodies consisting of <span class="math notranslate nohighlight">\(N\)</span> components with mass <span class="math notranslate nohighlight">\(m_j\)</span>, centre of mass coordinate <span class="math notranslate nohighlight">\(\R\)</span>, and centre of mass momentum <span class="math notranslate nohighlight">\(\P\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-56cceff0-f9c3-4f6e-9dd5-18ea8a0bbf06">
+<span class="eqno">(85)<a class="headerlink" href="#equation-56cceff0-f9c3-4f6e-9dd5-18ea8a0bbf06" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F_{\rm ext} = 0 \quad \to\quad \frac{\d\P}{\d t} = 0\, .
+\end{align}\]</div>
+<p>One example is a supernova (we ignore the external gravitational force on the star towards the centre of the galaxy). In the rest frame of the star before the explosion, the momentum is <span class="math notranslate nohighlight">\(\P=0\)</span> since the velocity of the centre of mass <span class="math notranslate nohighlight">\(\V\)</span> is zero. That does not mean all the parts of the star are at rest. Far from it! But all these small momenta sum up to zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a3ec39e2-d2f5-4ece-959d-787c2cde172e">
+<span class="eqno">(86)<a class="headerlink" href="#equation-a3ec39e2-d2f5-4ece-959d-787c2cde172e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \P_{\rm before} = \p_1 + \p_2 + \cdots + \p_N = \sum_{j=0}^N \p_j = 0\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(N\)</span> is <em>very</em> large. After the explosion, all the parts have been blown away, so the momentum of the individual parts may be much larger than before: <span class="math notranslate nohighlight">\(\p_j' &gt; \p_j\)</span>, but taken together, they still sum up to the same total momentum as before:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-926352fb-540f-4673-9021-31c39767fd6e">
+<span class="eqno">(87)<a class="headerlink" href="#equation-926352fb-540f-4673-9021-31c39767fd6e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \P_{\rm after} = \p_1' + \p_2' + \cdots + \p_M' = \sum_{j=0}^M \p_j' = 0\, .
+\end{align}\]</div>
+<p>We may no longer have the same number of parts in the system after the explosion, so <span class="math notranslate nohighlight">\(M\neq N\)</span> in general. Since this is a closed system, the energy is conserved as well, and the increased velocities of the constituent parts must come from somewhere. In a supernova, there is a lot of potential energy stored away in the atomic nuclei. When these nuclei fuse in a supernova explosion, this energy gets released and is turned into momentum.</p>
+<p>There are also important situations where momentum is not conserved. For example, a ball bouncing off a wall changes its momentum: right before the bounce it was moving, say, to the right with <span class="math notranslate nohighlight">\(\p_{\rm before} = m\v\)</span>, and immediately after the bounce it is moving to the left with <span class="math notranslate nohighlight">\(\p_{\rm after} = -m\v\)</span>. The wall exerted a force on the ball that turned it around. The overall impulse <span class="math notranslate nohighlight">\(\S\)</span> that turned the ball around is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-78a979ec-586c-4e8a-95c0-a5909d562e39">
+<span class="eqno">(88)<a class="headerlink" href="#equation-78a979ec-586c-4e8a-95c0-a5909d562e39" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \S = \p_{\rm after} - \p_{\rm before} = \F_{\rm wall} \Delta t\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\Delta t\)</span> is the time of contact between the ball and the wall, and <span class="math notranslate nohighlight">\(\F_{\rm wall}\)</span> is the force exerted by the wall on the ball.</p>
+<p>When we consider the ball and the wall together (assuming that there is no other system present, no Earth, no child throwing the ball), then momentum will be conserved, because we also have to consider the force of the ball exerted on the wall—Newton’s third law—and the total net force on the combined system is zero. The total momentum before the bounce is <span class="math notranslate nohighlight">\(\p_{\rm before} = m\v\)</span>, with the velocity of the wall before the bounce  zero. After the bounce, the momentum is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bfa99487-30a2-4e1c-b5fa-a714fd29324f">
+<span class="eqno">(89)<a class="headerlink" href="#equation-bfa99487-30a2-4e1c-b5fa-a714fd29324f" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \p_{\rm after} = -m\v + M\v_{\rm w}\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(M\)</span> is the mass of the wall and <span class="math notranslate nohighlight">\(\v_{\rm w}\)</span> is the velocity of the wall after the bounce. <span class="math notranslate nohighlight">\(M\)</span> is typically much larger than the mass of the ball <span class="math notranslate nohighlight">\(m\)</span>. Momentum conservation <span class="math notranslate nohighlight">\(\p_{\rm after} = \p_{\rm before}\)</span> means that the velocity of the wall becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-652c59a6-1510-4812-aff3-482f32cd26e5">
+<span class="eqno">(90)<a class="headerlink" href="#equation-652c59a6-1510-4812-aff3-482f32cd26e5" title="Permalink to this equation">#</a></span>\[\begin{align}
+  -m\v + M\v_{\rm w} = m\v\, , \qquad\to\qquad \v_{\rm w} = \frac{2m}{M} \v\, ,
+\end{align}\]</div>
+<p>which is tiny compared to <span class="math notranslate nohighlight">\(\v\)</span> when <span class="math notranslate nohighlight">\(M\gg m\)</span>.</p>
+</section>
+<section id="collisions">
+<h2>Collisions<a class="headerlink" href="#collisions" title="Link to this heading">#</a></h2>
+<p>The ball bouncing against a wall is a simple example of a collision problem. In this section we will develop the theory of collisions in more detail and for more general problems. We have to distinguish between two types of collisions, elastic and inelastic. Elastic collisions obey both energy and momentum conservation; the total kinetic energy before and after the collision remains unchanged. Inelastic collisions involve a change in kinetic energy, so that</p>
+<div class="math notranslate nohighlight" id="equation-3u0489eirhdfjvuig">
+<span class="eqno">(91)<a class="headerlink" href="#equation-3u0489eirhdfjvuig" title="Link to this equation">#</a></span>\[  T_{\rm before} = T_{\rm after} + Q\, . \]</div>
+<p>Typically <span class="math notranslate nohighlight">\(Q\)</span> is a positive quantity, for example when some of the kinetic energy in the collision is converted to heat. However, <span class="math notranslate nohighlight">\(Q\)</span> can also be negative when the collision triggers a release of potential energy (as in the supernova explosion). For example, a ship colliding with a sea mine triggers a detonation that creates a lot more kinetic energy than the kinetic energy that went into the collision. This is sometimes called a <em>super-elastic</em> collision. Finally, when <span class="math notranslate nohighlight">\(Q=0\)</span> the collision is elastic.</p>
+<p>Let’s consider a simple elastic collision of a particle with mass <span class="math notranslate nohighlight">\(m_1\)</span> with another particle of mass <span class="math notranslate nohighlight">\(m_2\)</span>. Furthermore, we assume that <span class="math notranslate nohighlight">\(m_1\)</span> has an initial velocity of <span class="math notranslate nohighlight">\(\v_1\)</span>, and <span class="math notranslate nohighlight">\(m_2\)</span> is at rest at the origin. We consider this a two-dimensional problem, so the collision will take place entirely in the <span class="math notranslate nohighlight">\(xy\)</span>-plane. Since the collision is elastic, both the momentum and the kinetic energy is conserved:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-da86b020-4368-4ec6-8b5e-d939aee03bf5">
+<span class="eqno">(92)<a class="headerlink" href="#equation-da86b020-4368-4ec6-8b5e-d939aee03bf5" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \p_{\rm before} = m_1 \v_1 \qquad\text{and}\qquad T_{\rm before} = \frac12 m_1 v_1^2\, .
+\end{align}\]</div>
+<p>After the collision, we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2abc76ba-00ee-451b-98ef-e60797ff0b68">
+<span class="eqno">(93)<a class="headerlink" href="#equation-2abc76ba-00ee-451b-98ef-e60797ff0b68" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \p_{\rm after} = m_1 \u_1 + m_2 \u_2 \qquad\text{and}\qquad T_{\rm after} = \frac12 m_1 u_1^2 + \frac12 m_2 u_2^2\, ,
+\end{align}\]</div>
+<p>where we used <span class="math notranslate nohighlight">\(\u_1\)</span> and <span class="math notranslate nohighlight">\(\u_2\)</span> for the velocities of <span class="math notranslate nohighlight">\(m_1\)</span> and <span class="math notranslate nohighlight">\(m_2\)</span> after the collision. To solve this, we want to work out the final velocities. However, we want to get rid of the vector quantities if we can, because they complicate things. We can write the term with <span class="math notranslate nohighlight">\(\u_2\)</span> in terms of <span class="math notranslate nohighlight">\(\u_1\)</span> and <span class="math notranslate nohighlight">\(\v_1\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8814ddb6-beec-49ea-8b55-ec549bff31d1">
+<span class="eqno">(94)<a class="headerlink" href="#equation-8814ddb6-beec-49ea-8b55-ec549bff31d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \p_{\rm after} = \p_{\rm before} : \qquad m_1 \u_1 + m_2 \u_2 = m_1 \v_1 \qquad\to\qquad m_2 \u_2 = m_1 (\v_1 - \u_1)\, .
+\end{align}\]</div>
+<p>Taking the square of this equation yields</p>
+<div class="amsmath math notranslate nohighlight" id="equation-00386cbc-de96-4c4d-86d2-f19867a881ae">
+<span class="eqno">(95)<a class="headerlink" href="#equation-00386cbc-de96-4c4d-86d2-f19867a881ae" title="Permalink to this equation">#</a></span>\[\begin{align}
+   m_2^2 u_2^2 &amp; = m_1^2 (\v_1 - \u_1)^2 = m_1^2 (\v_1\cdot\v_1 - 2 \v_1\cdot\u_1 + \u_1\cdot\u_1) \cr &amp; = m_1^2 (v_1^2 + u_1^2) - 2 m_1^2 v_1 u_1 \cos\theta\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\v_1\)</span> and <span class="math notranslate nohighlight">\(\u_1\)</span>, in other words, the angle with which particle 1 is deflected by the collision. Dividing this expression by <span class="math notranslate nohighlight">\(m_2\)</span>, we obtain</p>
+<div class="math notranslate nohighlight" id="equation-hugte08fjkrhu">
+<span class="eqno">(96)<a class="headerlink" href="#equation-hugte08fjkrhu" title="Link to this equation">#</a></span>\[   m_2 u_2^2 = \frac{m_1^2}{m_2} (v_1^2 + u_1^2) - 2 \frac{m_1^2}{m_2} v_1 u_1 \cos\theta\, .\]</div>
+<p>Next, we consider the conservation of kinetic energy:</p>
+<div class="math notranslate nohighlight" id="equation-gjktiehu5493oirj">
+<span class="eqno">(97)<a class="headerlink" href="#equation-gjktiehu5493oirj" title="Link to this equation">#</a></span>\[  T_{\rm before} = T_{\rm after}: \qquad \frac12 m_1 v_1^2 = \frac12 m_1 u_1^2 + \frac12 m_2 u_2^2\, .\]</div>
+<p>We substitute <span class="math notranslate nohighlight">\(m_2 u^2_2\)</span> from equation <a class="reference internal" href="#equation-hugte08fjkrhu">(96)</a> into this expression and divide by <span class="math notranslate nohighlight">\(m_1\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-220ce28c-26a7-4219-b77d-34ff5c027844">
+<span class="eqno">(98)<a class="headerlink" href="#equation-220ce28c-26a7-4219-b77d-34ff5c027844" title="Permalink to this equation">#</a></span>\[\begin{align}
+   u_1^2 - v_1^2 +  \frac{m_1}{m_2} \left(v_1^2 + u_1^2\right) - 2 \frac{m_1}{m_2} v_1 u_1 \cos\theta = 0\, .
+\end{align}\]</div>
+<p>When we look at the special case where <span class="math notranslate nohighlight">\(m_1 = m_2 = m\)</span>, you can prove that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b17fc330-7e57-4ac5-acb1-965fc600bfa9">
+<span class="eqno">(99)<a class="headerlink" href="#equation-b17fc330-7e57-4ac5-acb1-965fc600bfa9" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \cos\theta = \frac{u_1}{v_1}\, .
+\end{align}\]</div>
+<p>Moreover, from <span class="math notranslate nohighlight">\(m\v_1 = m\u_1 + m\u_2\)</span> we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b71080a1-5a26-436d-baa2-5108358c4b0f">
+<span class="eqno">(100)<a class="headerlink" href="#equation-b71080a1-5a26-436d-baa2-5108358c4b0f" title="Permalink to this equation">#</a></span>\[\begin{align}
+  m^2 v_1^2 = \left( m \u_1 + m \u_2 \right)^2 = m^2 u^2_1 + m^2 u_2^2 + 2 m^2 \u_1\cdot\u_2\, .
+\end{align}\]</div>
+<p>Using equation <a class="reference internal" href="#equation-gjktiehu5493oirj">(97)</a>, we see that <span class="math notranslate nohighlight">\(\u_1\cdot\u_2=0\)</span>, or the two velocities of the two masses are perpendicular to each other after the collision. Two examples of this are shown in Fig. 6.</p>
+<figure class="align-default" id="fig-vngihreuwuiojesd">
+<img alt="_images/perp.png" src="_images/perp.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 6 </span><span class="caption-text">Left: two equal-mass snooker balls make an angle of <span class="math notranslate nohighlight">\(90^\circ\)</span> after collision. Right: a collision of two alpha particles make an angle of <span class="math notranslate nohighlight">\(90^\circ\)</span> between their outgoing velocities.</span><a class="headerlink" href="#fig-vngihreuwuiojesd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Often a collision between two particles is most conveniently analysed in the centre of mass frame. In this case the momentum before and after the collision is zero, and we can write this simply as <span class="math notranslate nohighlight">\(\p_1 = -\p_2\)</span> and <span class="math notranslate nohighlight">\(\p_1' = -\p_2'\)</span>, where the prime indicates the momentum after the collision. We can further use equation <a class="reference internal" href="#equation-3u0489eirhdfjvuig">(91)</a> to write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8d0d242b-823c-442a-bfd3-f4278cca7587">
+<span class="eqno">(101)<a class="headerlink" href="#equation-8d0d242b-823c-442a-bfd3-f4278cca7587" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{p_1^2}{2m_1} + \frac{p_2^2}{2m_2} =  \frac{{p_1'}^2}{2m_1'} + \frac{{p_2'}^2}{2m_2'}  + Q\, ,
+\end{align}\]</div>
+<p>where we allowed for the possibility that the masses change after the collision: <span class="math notranslate nohighlight">\(m_1 \to m_1'\)</span> and <span class="math notranslate nohighlight">\(m_2 \to m_2'.\)</span> This can happen, for example, in particle accelerators where exotic particles are created from colliding protons. Using momentum conservation, we can express this entirely in terms of <span class="math notranslate nohighlight">\(p_1\)</span> and <span class="math notranslate nohighlight">\(p_1'\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f582f1e3-5665-45f2-b59d-842ffb1958b7">
+<span class="eqno">(102)<a class="headerlink" href="#equation-f582f1e3-5665-45f2-b59d-842ffb1958b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac12 \left(\frac{1}{m_1} + \frac{1}{m_2}\right) p_1^2 =  \frac12\left(\frac{1}{m_1'} + \frac{1}{m_2'}\right){p_1'}^2  + Q\, .
+\end{align}\]</div>
+<p>The quantities in brackets are the <em>reduced mass</em> for the two particles <span class="math notranslate nohighlight">\(\mu\)</span> and <span class="math notranslate nohighlight">\(\mu'\)</span> before and after the collision (see the problem set for lecture 4), so we can write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2e914287-8c93-4bfe-891b-b892452edf09">
+<span class="eqno">(103)<a class="headerlink" href="#equation-2e914287-8c93-4bfe-891b-b892452edf09" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{p_1^2}{2\mu} =  \frac{{p_1'}^2}{2\mu'}  + Q\, .
+\end{align}\]</div>
+<p>If the collision is elastic (<span class="math notranslate nohighlight">\(Q=0\)</span>) and the masses do not change (<span class="math notranslate nohighlight">\(\mu=\mu'\)</span>), then the magnitude of the momentum in the centre of mass frame does not change: <span class="math notranslate nohighlight">\(p_1 = p_1'\)</span>. There still has been an exchange of momentum, because the direction of <span class="math notranslate nohighlight">\(\p_1'\)</span> may be different from <span class="math notranslate nohighlight">\(\p_1\)</span>.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture4.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 4: Motion and forces in 2 and 3 dimensions</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture6.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Applications</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#conservation-of-energy">Conservation of energy</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum-conservation">Momentum conservation</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#collisions">Collisions</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

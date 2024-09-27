@@ -1,0 +1,707 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Applications &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture6';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Polar coordinates and circular motion" href="Lecture7.html" />
+    <link rel="prev" title="Lecture 5: Conservation of energy and momentum" href="Lecture5.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture6.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture6.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Applications</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#van-der-waals-forces-between-atoms">Van der Waals forces between atoms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifting-heavy-loads">Lifting heavy loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-velocity">Terminal velocity</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="applications">
+<h1>Applications<a class="headerlink" href="#applications" title="Link to this heading">#</a></h1>
+<p>In this lecture we will consider a few applications of the basic concepts of mechanics that we have covered so far, and show the broad applicability of the theory.</p>
+<hr class="docutils" />
+<section id="van-der-waals-forces-between-atoms">
+<h2>Van der Waals forces between atoms<a class="headerlink" href="#van-der-waals-forces-between-atoms" title="Link to this heading">#</a></h2>
+<p>The Lennard-Jones potential, shown in Fig. 8, describes the Van der Waals potential energy between two atoms,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a8e14740-c343-458b-94bc-82743d2250dc">
+<span class="eqno">(104)<a class="headerlink" href="#equation-a8e14740-c343-458b-94bc-82743d2250dc" title="Permalink to this equation">#</a></span>\[\begin{align}
+  V(r) = - \epsilon \left[2\left( \frac{r_{\rm m}}{r}\right)^6 - \left( \frac{r_{\rm m}}{r}\right)^{12} \right]\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(r\)</span> is the distance between the molecules, and <span class="math notranslate nohighlight">\(-\epsilon\)</span> is the bottom of the potential well at a distance <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>. This is a very complicated potential, but we can solve for the situation when the two atoms are roughly a distance <span class="math notranslate nohighlight">\(r_{\rm m}\)</span> apart. In this case the two atoms are bound together since they are in the potential well.</p>
+<figure class="align-default" id="fig-fvnjhrow">
+<img alt="_images/LJPotential.png" src="_images/LJPotential.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 7 </span><span class="caption-text">The Lennard-Jones potential. Left: the potential with minimum at <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>. Right: the parabolic approximation of the Lennard-Jones potential around <span class="math notranslate nohighlight">\(r_{\rm m}\)</span> that leads to a linear restoring force.</span><a class="headerlink" href="#fig-fvnjhrow" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>A slight change in distance between them will increase the potential energy, and there will be a force restoring the atoms to a distance <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>. We find the force from</p>
+<div class="amsmath math notranslate nohighlight" id="equation-952ddaf9-51d9-436d-94b1-7c094af85e38">
+<span class="eqno">(105)<a class="headerlink" href="#equation-952ddaf9-51d9-436d-94b1-7c094af85e38" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r) = -\frac{\d V}{\d r} = -12 \epsilon \left[ \frac{r_{\rm m}^6}{r^7} - \frac{r_{\rm m}^{12}}{r^{13}} \right]\, .
+\end{align}\]</div>
+<p>This is still far too complicated to substitute into Newton’s law, so we will approximate this force with a Taylor series around <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>, where we are interested in the physical behaviour of the atoms:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-99da2fdb-c779-4941-b8bf-8a2d28023d29">
+<span class="eqno">(106)<a class="headerlink" href="#equation-99da2fdb-c779-4941-b8bf-8a2d28023d29" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r) = F(r_{\rm m}) + (r-r_{\rm m}) \left.\frac{\d F}{\d r}\right|_{r=r_{\rm m}} + \frac{(r-r_{\rm m})^2}{2} \left.\frac{\d^2 F}{\d r^2}\right|_{r=r_{\rm m}} + \ldots
+\end{align}\]</div>
+<p>We can take the derivatives of <span class="math notranslate nohighlight">\(F\)</span> with respect to <span class="math notranslate nohighlight">\(r\)</span> and substitute <span class="math notranslate nohighlight">\(r=r_{\rm m}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-efd1604e-10af-43c0-9a91-bc6d4084b507">
+<span class="eqno">(107)<a class="headerlink" href="#equation-efd1604e-10af-43c0-9a91-bc6d4084b507" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r_{\rm m})  = 0 \qquad\text{and}\qquad
+ \left.\frac{\d F}{\d r} \right|_{r=r_{\rm m}}  = -12 \epsilon \left(\frac{13 r_{\rm m}^{12}}{r^{14}}-\frac{7 r_{\rm m}^6}{r^8}\right)_{r=r_{\rm m}} = -\frac{72 \epsilon}{r_{\rm m}^2}
+\end{align}\]</div>
+<p>We need the force only up to the first non-zero term, the linear term. This corresponds to the quadratic potential around <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-41d7f2b8-428b-4aa4-a3f9-13af4437e59e">
+<span class="eqno">(108)<a class="headerlink" href="#equation-41d7f2b8-428b-4aa4-a3f9-13af4437e59e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r) \simeq  -(r-r_{\rm m})  \frac{72 \epsilon}{r_{\rm m}^2}\, .
+\end{align}\]</div>
+<p>We can define <span class="math notranslate nohighlight">\(k=72 \epsilon/r_{\rm m}^2\)</span> and the radial displacement from the equilibrium position <span class="math notranslate nohighlight">\(x = r-r_{\rm m}\)</span>. The force is then in a form that we can use in Newton’s second law:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-844480de-0e77-4aa1-99bc-2fa518e2127f">
+<span class="eqno">(109)<a class="headerlink" href="#equation-844480de-0e77-4aa1-99bc-2fa518e2127f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(x) \simeq  -kx\, .
+\end{align}\]</div>
+<p>This is formally identical to Hooke’s law, and the solutions to the differential equation are therefore given by equation <a class="reference internal" href="Lecture2.html#equation-fvmnghre9w4ueirdfg">(31)</a>. The two atoms thus oscillate harmonically towards and away from each other around the equilibrium separation <span class="math notranslate nohighlight">\(r_{\rm m}\)</span>.</p>
+</section>
+<hr class="docutils" />
+<section id="lifting-heavy-loads">
+<h2>Lifting heavy loads<a class="headerlink" href="#lifting-heavy-loads" title="Link to this heading">#</a></h2>
+<p>Consider a system with two pulleys as shown in the figure below. Calculate the force needed to lift a load with mass <span class="math notranslate nohighlight">\(m\)</span> using this pulley system. You will need to consider the acceleration of the load for the two coordinates <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(X\)</span>.</p>
+<figure class="align-default" id="fig-tryjuhkkj">
+<a class="reference internal image-reference" href="_images/pulleys.jpg"><img alt="_images/pulleys.jpg" src="_images/pulleys.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 8 </span><span class="caption-text">Lifting a mass using a pulley system.</span><a class="headerlink" href="#fig-tryjuhkkj" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We work out the acceleration <span class="math notranslate nohighlight">\(\ddot{x}\)</span> of the hand, which is of course related to the force with which the hand pulls (<span class="math notranslate nohighlight">\(F_h = m\ddot{x}\)</span>), and compare it to the acceleration of the block <span class="math notranslate nohighlight">\(\ddot{X}\)</span>. Assuming that the length of the string is a constant <span class="math notranslate nohighlight">\(l\)</span> and the radius of the wheels is <span class="math notranslate nohighlight">\(R\)</span>, we know that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cd5a6a7b-1a59-41f9-b610-436aed79e810">
+<span class="eqno">(110)<a class="headerlink" href="#equation-cd5a6a7b-1a59-41f9-b610-436aed79e810" title="Permalink to this equation">#</a></span>\[\begin{align}\nonumber
+ l = X + \pi R + (X-h) + \pi R + (x-h)\, .
+\end{align}\]</div>
+<p>Rearranging this, we obtain a relation between <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(X\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-596ecd49-9b46-42cf-8e9a-2d8b2477b979">
+<span class="eqno">(111)<a class="headerlink" href="#equation-596ecd49-9b46-42cf-8e9a-2d8b2477b979" title="Permalink to this equation">#</a></span>\[\begin{align}\nonumber
+ x = l - 2(X+\pi R - h)\, .
+\end{align}\]</div>
+<p>Taking the second derivative to obtain the relationship between the accelerations of the hand and the mass, we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b2e14259-3dd2-4b4a-ab43-e2ef1e1e6a84">
+<span class="eqno">(112)<a class="headerlink" href="#equation-b2e14259-3dd2-4b4a-ab43-e2ef1e1e6a84" title="Permalink to this equation">#</a></span>\[\begin{align}\nonumber
+ \ddot{X} = -\frac12 \ddot{x}\, .
+\end{align}\]</div>
+<p>To raise the block a distance <span class="math notranslate nohighlight">\(s\)</span>, the hand must pull down the rope <em>twice</em> that distance downwards. Note the relative signs and the direction of pulling and lifting. To work out the force with which the hand must pull, we can use the work done on the block:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-042e3f35-c723-4dae-8f95-93de6a08fc28">
+<span class="eqno">(113)<a class="headerlink" href="#equation-042e3f35-c723-4dae-8f95-93de6a08fc28" title="Permalink to this equation">#</a></span>\[\begin{align}\nonumber
+ W = F s = mgs\, .
+\end{align}\]</div>
+<p>By conservation of energy, the work done by the hand is equal to the work done on the block, and we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3d499d5d-0135-4558-acef-dc748ca362ac">
+<span class="eqno">(114)<a class="headerlink" href="#equation-3d499d5d-0135-4558-acef-dc748ca362ac" title="Permalink to this equation">#</a></span>\[\begin{align}\nonumber
+ W_h = F_h \times 2s = mgs \qquad\Rightarrow\qquad F_h = \frac12 mg\, .
+\end{align}\]</div>
+<p>In other words, we have to apply only <em>half</em> the force that we would need if we were to lift the block directly, but the trade-off is that we need to pull the rope <em>twice</em> the distance we want to move the block. Using more pulleys you can lift heavier objects with the same force.</p>
+</section>
+<hr class="docutils" />
+<section id="terminal-velocity">
+<h2>Terminal velocity<a class="headerlink" href="#terminal-velocity" title="Link to this heading">#</a></h2>
+<p>We want to calculate the terminal velocity of a sphere with mass <span class="math notranslate nohighlight">\(m\)</span> in a fluid under gravity. We can start with the exercise in problem set 2, where we looked at the drag force. Here, we have a drag force against the direction of the velocity <span class="math notranslate nohighlight">\(v\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-cce98366-6c90-4bc2-a85c-b2a13261c3ec">
+<span class="eqno">(115)<a class="headerlink" href="#equation-cce98366-6c90-4bc2-a85c-b2a13261c3ec" title="Permalink to this equation">#</a></span>\[\begin{align}
+  F_{\rm drag} = -bv\, ,
+ \end{align}\]</div>
+<p>as well as the gravitational force <span class="math notranslate nohighlight">\(F_{\rm gr} = mg\)</span> due to the gravitational acceleration <span class="math notranslate nohighlight">\(g\)</span>. The net force experienced by the sphere is the sum of these two forces,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-71059428-f1ba-43eb-805d-c5ef0dea3ad1">
+<span class="eqno">(116)<a class="headerlink" href="#equation-71059428-f1ba-43eb-805d-c5ef0dea3ad1" title="Permalink to this equation">#</a></span>\[\begin{align}
+  F_{\rm net} = F_{\rm gr} + F_{\rm drag} = mg - bv\, .
+ \end{align}\]</div>
+<p>The positive direction is chosen downwards. We set this equal to <span class="math notranslate nohighlight">\(F_{\rm net} = ma\)</span>, but instead of finding the position <span class="math notranslate nohighlight">\(x(t)\)</span>, we want to find a differential equation for the velocity <span class="math notranslate nohighlight">\(v(t)\)</span>, since we are interested in the terminal <em>velocity</em>. That is actually easier:</p>
+<div class="math notranslate nohighlight" id="equation-lgkjeuo">
+<span class="eqno">(117)<a class="headerlink" href="#equation-lgkjeuo" title="Link to this equation">#</a></span>\[ \frac{\d v}{\d t} = -\frac{b}{m}v + g\, .\]</div>
+<p>To solve a differential equation, we often make a so-called <em>Ansatz</em> (German for `guess’). Here, we will try</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0a5c18ff-2879-4cb2-b24a-a460e05e9892">
+<span class="eqno">(118)<a class="headerlink" href="#equation-0a5c18ff-2879-4cb2-b24a-a460e05e9892" title="Permalink to this equation">#</a></span>\[\begin{align}
+  v(t) = u + w \e^{-st}\, ,
+ \end{align}\]</div>
+<p>where we need to find <span class="math notranslate nohighlight">\(u\)</span>, <span class="math notranslate nohighlight">\(w\)</span> and <span class="math notranslate nohighlight">\(s\)</span>. First we calculate <span class="math notranslate nohighlight">\(\dot{v}(t)\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-bd9e0091-4972-4633-8a0a-31aa65e2ca44">
+<span class="eqno">(119)<a class="headerlink" href="#equation-bd9e0091-4972-4633-8a0a-31aa65e2ca44" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \frac{\d v}{\d t} = -ws\, \e^{-st}\, ,
+ \end{align}\]</div>
+<p>and we substitute this back into the differential equation <a class="reference internal" href="#equation-lgkjeuo">(117)</a>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d0624f97-6ea2-488d-b27b-4808836eecd0">
+<span class="eqno">(120)<a class="headerlink" href="#equation-d0624f97-6ea2-488d-b27b-4808836eecd0" title="Permalink to this equation">#</a></span>\[\begin{align}
+ -ws\, \e^{-st} = -\frac{b}{m}\left( u + w \e^{-st} \right) + g\, .
+\end{align}\]</div>
+<p>This can only be a valid equation if the factors in front of the exponentials are the same, and the remaining constants sum to zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7abc9f90-b1a4-488a-ae07-2ca1128120fc">
+<span class="eqno">(121)<a class="headerlink" href="#equation-7abc9f90-b1a4-488a-ae07-2ca1128120fc" title="Permalink to this equation">#</a></span>\[\begin{align}
+ -ws = -\frac{b}{m}w \qquad\text{and}\qquad -\frac{b}{m} u + g = 0\, . 
+\end{align}\]</div>
+<p>From this we find that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-42f574fe-2753-41ef-b0d9-73fb1d00b9ba">
+<span class="eqno">(122)<a class="headerlink" href="#equation-42f574fe-2753-41ef-b0d9-73fb1d00b9ba" title="Permalink to this equation">#</a></span>\[\begin{align}
+ s = \frac{b}{m} \qquad\text{and}\qquad u = \frac{mg}{b}\, .
+\end{align}\]</div>
+<p>We do not know what <span class="math notranslate nohighlight">\(w\)</span> is yet. To find it, we need to use the initial condition for the differential equation, e.g., <span class="math notranslate nohighlight">\(v(t=0) = v_0\)</span>. The we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-58d8b915-bf75-4d8a-851b-b1a05bd368b7">
+<span class="eqno">(123)<a class="headerlink" href="#equation-58d8b915-bf75-4d8a-851b-b1a05bd368b7" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v(t) = \frac{mg}{b} + w\, \e^{-bt/m}\, .
+\end{align}\]</div>
+<p>Hence</p>
+<div class="amsmath math notranslate nohighlight" id="equation-52c27bdb-e272-43b5-8acd-4aa63fa90a68">
+<span class="eqno">(124)<a class="headerlink" href="#equation-52c27bdb-e272-43b5-8acd-4aa63fa90a68" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v(0) = \frac{mg}{b} + w\, \e^0 = v_0 \qquad\to\qquad w = v_0 - \frac{mg}{b}\, .
+\end{align}\]</div>
+<p>This leads to the final result</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dd8f740a-d8b0-4545-89f9-2c66ed5aa9b8">
+<span class="eqno">(125)<a class="headerlink" href="#equation-dd8f740a-d8b0-4545-89f9-2c66ed5aa9b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+  v(t) = \frac{mg}{b} \left( 1 - \e^{-bt/m}\right) +v_0\,  \e^{-bt/m}\, .
+ \end{align}\]</div>
+<p>When <span class="math notranslate nohighlight">\(g=0\)</span> we recover the result from problem set 2, as required. But more interestingly, we can find the terminal velocity by taking the limit of <span class="math notranslate nohighlight">\(t\to\infty\)</span>. The exponetials will tend to zero in this limit, so we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-969d7086-6983-4d98-9a52-0c4ed7598a9a">
+<span class="eqno">(126)<a class="headerlink" href="#equation-969d7086-6983-4d98-9a52-0c4ed7598a9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+  v_{\rm terminal} = \lim_{t\to\infty} v(t) =  \frac{mg}{b}\, .
+ \end{align}\]</div>
+<p>This is independent of the initial velocity <span class="math notranslate nohighlight">\(v_0\)</span>, but it does depend on <span class="math notranslate nohighlight">\(b\)</span>, which itself captures all the relevant information about the shape and density of the object, as well as the viscosity of the fluid or gas.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture5.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 5: Conservation of energy and momentum</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture7.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Polar coordinates and circular motion</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#van-der-waals-forces-between-atoms">Van der Waals forces between atoms</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#lifting-heavy-loads">Lifting heavy loads</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#terminal-velocity">Terminal velocity</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

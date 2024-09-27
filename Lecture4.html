@@ -1,0 +1,751 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lecture 4: Motion and forces in 2 and 3 dimensions &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture4';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 5: Conservation of energy and momentum" href="Lecture5.html" />
+    <link rel="prev" title="Lecture 3: Vectors" href="Lecture3.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture4.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture4.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 4: Motion and forces in 2 and 3 dimensions</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#force-balance">Force balance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-third-law">Newton’s third law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centre-of-mass">Centre of mass</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="lecture-4-motion-and-forces-in-2-and-3-dimensions">
+<h1>Lecture 4: Motion and forces in 2 and 3 dimensions<a class="headerlink" href="#lecture-4-motion-and-forces-in-2-and-3-dimensions" title="Link to this heading">#</a></h1>
+<p>Now that we have the necessary tools to describe motion in two and three dimensions, we can write Newton’s second law in vector form:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-726773b5-e589-476a-9c5a-5ced654f0a37">
+<span class="eqno">(51)<a class="headerlink" href="#equation-726773b5-e589-476a-9c5a-5ced654f0a37" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F = m \a\, .
+\end{align}\]</div>
+<p>The acceleration <span class="math notranslate nohighlight">\(\a\)</span> always points in the same direction as <span class="math notranslate nohighlight">\(\F\)</span>. In this lecture we will first explore Newton’s first law in two and three dimensions, and see how this leads to the notion of force balance. Next we will introduce the forces between multiple bodies and the centre of mass. Finally, we will introduce the notion of momentum, and re-express Newton’s second law in terms of changes in momentum.</p>
+<section id="force-balance">
+<h2>Force balance<a class="headerlink" href="#force-balance" title="Link to this heading">#</a></h2>
+<p>Newton’s first law states that there is no <em>net</em> force on a body at rest or in uniform linear motion. This means that there may be multiple forces acting on the body, but they all sum to zero. In one dimension, this is easy to understand:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-43c10c46-5fe1-4f8f-b4ee-a3cbb6cad72a">
+<span class="eqno">(52)<a class="headerlink" href="#equation-43c10c46-5fe1-4f8f-b4ee-a3cbb6cad72a" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F_1 + F_2 + \ldots + F_N = 0\, .
+\end{align}\]</div>
+<p>All these forces lie along the same line.
+In three dimensions, this becomes a <em>vector</em> equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d4b957c8-7f1b-4714-80a4-d8680691b3ac">
+<span class="eqno">(53)<a class="headerlink" href="#equation-d4b957c8-7f1b-4714-80a4-d8680691b3ac" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F_1 + \F_2 + \ldots + \F_N = 0\, ,
+\end{align}\]</div>
+<p>which should be understood as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f38378dd-1fa5-42c9-9b45-a7244b988252">
+<span class="eqno">(54)<a class="headerlink" href="#equation-f38378dd-1fa5-42c9-9b45-a7244b988252" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \begin{pmatrix}
+  F_{1,x} \\ F_{1,y} \\ F_{1,z} 
+ \end{pmatrix} 
+ + 
+ \begin{pmatrix}
+  F_{2,x} \\ F_{2,y} \\ F_{2,z} 
+ \end{pmatrix} 
+ + \ldots + 
+ \begin{pmatrix}
+  F_{N,x} \\ F_{N,y} \\ F_{N,z} 
+ \end{pmatrix}
+ =
+ \begin{pmatrix}
+  0 \\ 0 \\ 0 
+ \end{pmatrix}
+ \equiv 0\, ,
+\end{align}\]</div>
+<p>Therefore, <em>each component</em> should add up to zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1acdb416-60b6-49ba-b067-5dcf05352f4c">
+<span class="eqno">(55)<a class="headerlink" href="#equation-1acdb416-60b6-49ba-b067-5dcf05352f4c" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F_{1,x} + F_{2,x} + \ldots + F_{N,x} &amp; = 0 \cr 
+ F_{1,y} + F_{2,y} + \ldots + F_{N,y} &amp; = 0 \cr
+ F_{1,z} + F_{2,z} + \ldots + F_{N,z} &amp; = 0 \, .
+\end{align}\]</div>
+<p>When you draw your diagrams, you will need to decompose your forces into their components.</p>
+<figure class="align-default" id="fig-04ueorfjsl">
+<a class="reference internal image-reference" href="_images/forces.jpg"><img alt="_images/forces.jpg" src="_images/forces.jpg" style="width: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 5 </span><span class="caption-text">Forces balance in two dimensions. From Kleppner &amp; Kolenkow, CUP 2014.</span><a class="headerlink" href="#fig-04ueorfjsl" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>As an example, consider a mass <span class="math notranslate nohighlight">\(m\)</span> on a frictionless ramp that is subject to a force <span class="math notranslate nohighlight">\(f\)</span> preventing it from sliding down (see Fig. 5). Gravity produces a downward force <span class="math notranslate nohighlight">\(W\)</span>, the weight, and the ramp produces a normal force <span class="math notranslate nohighlight">\(N\)</span> that prevents the mass from moving into the ramp. The normal force will always have exactly the magnitude to keep it on the ramp. We can choose our <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates any way we like, as long as they are perpendicular (orthogonal) to each other. In this problem it is convenient to take <span class="math notranslate nohighlight">\(x\)</span> down the ramp, and <span class="math notranslate nohighlight">\(y\)</span> perpendicular to the ramp. Since the mass is at rest, the three forces should balance, i.e., sum to zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5a499f3f-3bb6-4231-8caa-992fa50d53b8">
+<span class="eqno">(56)<a class="headerlink" href="#equation-5a499f3f-3bb6-4231-8caa-992fa50d53b8" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \mathbf{f} + \mathbf{N} + \mathbf{W} = 0\, .
+\end{align}\]</div>
+<p>In vector form this is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6aa45f15-edd7-4e46-a788-d903f2270b7b">
+<span class="eqno">(57)<a class="headerlink" href="#equation-6aa45f15-edd7-4e46-a788-d903f2270b7b" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \begin{pmatrix} -f \\ 0 \end{pmatrix}  + \begin{pmatrix} 0 \\ N \end{pmatrix} + \begin{pmatrix} W\sin\theta \\ -W\cos\theta \end{pmatrix} = \begin{pmatrix} 0 \\ 0 \end{pmatrix} = 0\, .
+\end{align}\]</div>
+<p>Setting the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> components to zero leads to the two equations</p>
+<div class="amsmath math notranslate nohighlight" id="equation-98bfb563-272e-489e-9346-ae303e4db8f8">
+<span class="eqno">(58)<a class="headerlink" href="#equation-98bfb563-272e-489e-9346-ae303e4db8f8" title="Permalink to this equation">#</a></span>\[\begin{align}
+ -f+ W\sin\theta = 0 \qquad\text{and}\qquad N - W \cos\theta = 0\, .
+\end{align}\]</div>
+<p>Since <span class="math notranslate nohighlight">\(W = mg\)</span>, and we want to know the values of the magnitudes <span class="math notranslate nohighlight">\(f\)</span> and <span class="math notranslate nohighlight">\(N\)</span> in terms of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, we can rearrange</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2af3f4ea-4608-423d-ab05-3839fdfc6b15">
+<span class="eqno">(59)<a class="headerlink" href="#equation-2af3f4ea-4608-423d-ab05-3839fdfc6b15" title="Permalink to this equation">#</a></span>\[\begin{align}
+ f = mg\sin\theta  \qquad\text{and}\qquad N = mg \cos\theta\, .
+\end{align}\]</div>
+<p>The normal force <span class="math notranslate nohighlight">\(N\)</span> is due to Newton’s third law, which states that a force on one body (the ramp) due to another (the mass) produces a force equal in magnitude and opposite in direction on the first body (the mass) due to the other (the ramp). Note the subtlety here that the normal force on the mass due to the ramp is <em>not</em> along <span class="math notranslate nohighlight">\(\mathbf{W}\)</span>, so it is the component perpendicular to the ramp that determines <span class="math notranslate nohighlight">\(\mathbf{N}\)</span>.</p>
+<blockquote>
+<div><h4 class="rubric" id="exercise">Exercise</h4>
+<p>Solve the problem in figure 5 using coordinates where the <span class="math notranslate nohighlight">\(x\)</span> direction is horizontal and the <span class="math notranslate nohighlight">\(y\)</span> direction is vertical.</p>
+</div></blockquote>
+<p>Another important concept for vectors is the <em>point of engagement</em>, or the starting point of the arrow that represents the force. We treated the mass in figure 5 as a point mass, and all forces therefore engage at the centre of gravity. However, for extended systems this can be different. For example, while the weight force (<span class="math notranslate nohighlight">\(mg\)</span>) always has the centre of gravity as the point of engagement, the normal force has the boundary between the block and the ramp surface as the point of engagement. Any friction force also has the point of engagement lying in the contact surface between the block and the ramp. We will explore the importance of this when we consider torque in a future lecture.</p>
+</section>
+<section id="newton-s-third-law">
+<h2>Newton’s third law<a class="headerlink" href="#newton-s-third-law" title="Link to this heading">#</a></h2>
+<p>In the example of the block on the ramp in the previous section, the two bodies exert a force on each other: the weight of the block is a force <em>on</em> the ramp, while the ramp exerts an equal and opposite force on the block, namely the normal force. This is a consequence of Newton’s third law that forces <em>always</em> appear in pairs that are equal and opposite, but acting on different objects. Imagine that object 1 exerts a force <span class="math notranslate nohighlight">\(\F_{12}\)</span> on object 2. The point of engagement of <span class="math notranslate nohighlight">\(\F_{12}\)</span> is on object 2. The third law states that object 2 also exerts a force on object 1, <span class="math notranslate nohighlight">\(\F_{21}\)</span> that is opposite and equal in magnitude to <span class="math notranslate nohighlight">\(\F_{12}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f6aed912-3592-4eab-9b9b-1e770b310c80">
+<span class="eqno">(60)<a class="headerlink" href="#equation-f6aed912-3592-4eab-9b9b-1e770b310c80" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F_{21} = -\F_{12}\, .
+\end{align}\]</div>
+<p>The two objects do not need to be touching, as is the case with the block and the ramp. The gravitational force on the Earth by the Sun is a vector <span class="math notranslate nohighlight">\(\F_{\rm g}\)</span> acting on the Earth and pointing towards the Sun. Similarly, the Earth exerts an equal force on the Sun in opposite direction, <span class="math notranslate nohighlight">\(-\F_{\rm g}\)</span>. The acceleration of the Earth <span class="math notranslate nohighlight">\(\a_{\rm E}\)</span> due to the Sun’s gravity can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb676e77-eae9-4c9c-9e88-bfeee7c5dd7e">
+<span class="eqno">(61)<a class="headerlink" href="#equation-eb676e77-eae9-4c9c-9e88-bfeee7c5dd7e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \a_{\rm E} = \frac{\F_{\rm g}}{m_{\rm E}}\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m_{\rm E}\)</span> is the mass of the Earth. Similarly, the acceleration of the Sun <span class="math notranslate nohighlight">\(\a_{\odot}\)</span> due to the Sun’s gravity can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8cc5ba5b-359c-4818-98cb-e9229a575354">
+<span class="eqno">(62)<a class="headerlink" href="#equation-8cc5ba5b-359c-4818-98cb-e9229a575354" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \a_{\odot} = \frac{\F_{\rm g}}{m_{\odot}}\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(m_{\odot}\)</span> is the mass of the Sun. Even though the forces are the same in magnitude, the acceleration of the Earth is much larger than that of the Sun due to the great difference in masses <span class="math notranslate nohighlight">\(m_{\rm E}\)</span> and <span class="math notranslate nohighlight">\(m_{\odot}\)</span>.</p>
+<p>Often we want to consider a system of <span class="math notranslate nohighlight">\(N\)</span> masses <span class="math notranslate nohighlight">\(m_1\)</span>, <span class="math notranslate nohighlight">\(m_2\)</span>, <span class="math notranslate nohighlight">\(\ldots\)</span> <span class="math notranslate nohighlight">\(m_N\)</span>. This can be a galaxy of stars, the solar system, an atomic nucleus with orbiting electrons, or a formation of flying drones, to name a few examples. There may be forces between these objects. If there is a force <span class="math notranslate nohighlight">\(\F_{jk}\)</span> on mass <span class="math notranslate nohighlight">\(m_k\)</span> due to mass <span class="math notranslate nohighlight">\(m_j\)</span>, then there is also a force <span class="math notranslate nohighlight">\(\F_{kj} = -\F_{jk}\)</span> on mass <span class="math notranslate nohighlight">\(m_j\)</span> due to mass <span class="math notranslate nohighlight">\(m_k\)</span> due to Newton’s third law.</p>
+</section>
+<section id="momentum">
+<h2>Momentum<a class="headerlink" href="#momentum" title="Link to this heading">#</a></h2>
+<p>At this point we introduce the <em>momentum</em> <span class="math notranslate nohighlight">\(\p\)</span> of a body with mass <span class="math notranslate nohighlight">\(m\)</span> and velocity <span class="math notranslate nohighlight">\(\v\)</span> as <span class="math notranslate nohighlight">\(\p = m\v\)</span>. Momentum is a very useful concept when we want to quantify `how much motion’ there is in a body. It plays a more fundamental role dan acceleration in Newton’s second law, and we can write instead</p>
+<div class="math notranslate nohighlight" id="equation-vfgnjehiury87t43">
+<span class="eqno">(63)<a class="headerlink" href="#equation-vfgnjehiury87t43" title="Link to this equation">#</a></span>\[ \F = \frac{\d\p}{\d t}\, .\]</div>
+<p>The change in motion of a body is equal to the force exerted on that body. Equation <a class="reference internal" href="#equation-vfgnjehiury87t43">(63)</a> is equivalent to <span class="math notranslate nohighlight">\(\F = m\a\)</span>, but <em>only</em> when the mass is constant. There are however situations in which this is not the case.</p>
+<blockquote>
+<div><h4 class="rubric" id="example-rocket-motion">Example: <em>Rocket motion</em></h4>
+<p>Consider a rocket travelling with (increasing) velocity <span class="math notranslate nohighlight">\(\v\)</span> relative to some rest frame (e.g., the Earth). The rocket expels hot gas with a velocity <span class="math notranslate nohighlight">\(\v'\)</span> relative to the same rest frame, such that the exhaust velocity relative to the rocket is <span class="math notranslate nohighlight">\(\v_e = \v'-\v\)</span>. Assume furthermore that <span class="math notranslate nohighlight">\(\v_e\)</span> is constant. We are interested in the force <span class="math notranslate nohighlight">\(\F\)</span> on the rocket by the exhaust gas, and the velocity of the rocket after some time <span class="math notranslate nohighlight">\(t\)</span>.</p>
+<p>The momentum of the rocket at time <span class="math notranslate nohighlight">\(t\)</span> is <span class="math notranslate nohighlight">\(\p(t) = m\v(t)\)</span>, and a short time interval <span class="math notranslate nohighlight">\(\d t\)</span> later, the momentum has become</p>
+<div class="math notranslate nohighlight" id="equation-johihjkjjjippj">
+<span class="eqno">(64)<a class="headerlink" href="#equation-johihjkjjjippj" title="Link to this equation">#</a></span>\[\p(t+\d t) = (m - \d m)(\v+\d\v) +\d m \v'  \, ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(\d m\)</span> is the (positive) mass of hot gas expelled by the rocket. The first term in the right-hand side is the new momentum of the rocket, while the second term, <span class="math notranslate nohighlight">\(\d m\v'\)</span>, is the momentum of the expelled hot gas. Expanding the product in equation <a class="reference internal" href="#equation-johihjkjjjippj">(64)</a>, we obtain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-73dbf521-b6cf-4d70-b855-0ede3b5588d0">
+<span class="eqno">(65)<a class="headerlink" href="#equation-73dbf521-b6cf-4d70-b855-0ede3b5588d0" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \p(t+\d t) = m\v +m\d\v -\v\d m +\d m \v' = m\v + m\d\v +\v_e \d m \, ,
+\end{align}\]</div>
+<p>where we dropped the term that is quadratic in the infinitesimals, <span class="math notranslate nohighlight">\(\d m \d\v\)</span>, since they vanish in the final result (we nearly always drop products or powers of infinitesimals, since the vanish in the limit). The change in momentum is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-775fb2b3-6f95-432b-adf8-05c10d1506c2">
+<span class="eqno">(66)<a class="headerlink" href="#equation-775fb2b3-6f95-432b-adf8-05c10d1506c2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \d\p = \p(t+\d t) - \p(t) = m\d\v +\v_e \d m \, .
+\end{align}\]</div>
+<p>Hence</p>
+<div class="amsmath math notranslate nohighlight" id="equation-28267f6c-aa99-40c7-882d-59529bbfe879">
+<span class="eqno">(67)<a class="headerlink" href="#equation-28267f6c-aa99-40c7-882d-59529bbfe879" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d\p}{\d t} = m\frac{\d\v}{\d t} +\v_e \frac{\d m}{\d t} \, .
+\end{align}\]</div>
+<p>If there is an external force <span class="math notranslate nohighlight">\(\F\)</span> on the rocket, such as Earth’s gravity, then we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9e782d1a-27be-4cfa-b1a4-a3ba1aa8d7f4">
+<span class="eqno">(68)<a class="headerlink" href="#equation-9e782d1a-27be-4cfa-b1a4-a3ba1aa8d7f4" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F =  \frac{\d\p}{\d t} = m\frac{\d\v}{\d t} +\v_e \frac{\d m}{\d t} \, .
+\end{align}\]</div>
+<p>If the rocket accelerates in free space without external forces, then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-160f615c-54ad-4300-a735-472e0841ddb1">
+<span class="eqno">(69)<a class="headerlink" href="#equation-160f615c-54ad-4300-a735-472e0841ddb1" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F = 0 \quad\longrightarrow\quad \m\frac{\d\v}{\d t} +\v_e \frac{\d m}{\d t} = 0\, ,
+\end{align}\]</div>
+<p>and the momentum imparted on the hot gas balances the momentum gained by the rocket and its remaining fuel.</p>
+<p>Let <span class="math notranslate nohighlight">\(\F = m\g\)</span>, the gravitational force close to the Earth’s surface. Our equation of motion becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e6338d47-ba99-4aca-815c-7f3bee563207">
+<span class="eqno">(70)<a class="headerlink" href="#equation-e6338d47-ba99-4aca-815c-7f3bee563207" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d\v}{\d t} + \frac{\v_e}{m} \frac{\d m}{\d t} = \g \, .
+\end{align}\]</div>
+<p>Here <span class="math notranslate nohighlight">\(\v\)</span> and <span class="math notranslate nohighlight">\(\v_e\)</span> point upward, while <span class="math notranslate nohighlight">\(\g\)</span> points downward. This then becomes a one-dimensional problem</p>
+<div class="amsmath math notranslate nohighlight" id="equation-45814d49-7338-456f-937f-830737361d62">
+<span class="eqno">(71)<a class="headerlink" href="#equation-45814d49-7338-456f-937f-830737361d62" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d v}{\d t} + \frac{v_e}{m} \frac{\d m}{\d t} = -g\, ,
+\end{align}\]</div>
+<p>where the positive direction is upward. Integrating this equation, we obtain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-41ec4f03-d523-4398-b960-ecc320cea97f">
+<span class="eqno">(72)<a class="headerlink" href="#equation-41ec4f03-d523-4398-b960-ecc320cea97f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \int_{v_0}^v \d v + v_e\int_{m_0}^m \frac{\d m'}{m'} = -g\int_0^t \d t\, ,
+\end{align}\]</div>
+<p>or</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0f8a7f2e-5f72-4df0-87cd-36ea40cf4a9e">
+<span class="eqno">(73)<a class="headerlink" href="#equation-0f8a7f2e-5f72-4df0-87cd-36ea40cf4a9e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v = v_0 + v_e\ln \frac{m}{m_0} - gt \, .
+\end{align}\]</div>
+<p>If <span class="math notranslate nohighlight">\(m\)</span> is the final mass and <span class="math notranslate nohighlight">\(t\)</span> is the time in which all fuel has been used up, then <span class="math notranslate nohighlight">\(v\)</span> is the final speed of the rocket. Note that we have assumed that <span class="math notranslate nohighlight">\(g\)</span> does not change while the rocket is burning its fuel, which is typically not a very good approximation for very large rockets that keep burning their fuel until well into the upper atmosphere. We also ignored air resistance.</p>
+</div></blockquote>
+</section>
+<section id="centre-of-mass">
+<h2>Centre of mass<a class="headerlink" href="#centre-of-mass" title="Link to this heading">#</a></h2>
+<p>The centre of mass position <span class="math notranslate nohighlight">\(\R\)</span> of <span class="math notranslate nohighlight">\(N\)</span> particles is the sum of all the positions of the particles, weighed by their masses:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-68dcf984-3df9-420a-bcb7-7656283cfeb1">
+<span class="eqno">(74)<a class="headerlink" href="#equation-68dcf984-3df9-420a-bcb7-7656283cfeb1" title="Permalink to this equation">#</a></span>\[\begin{align}%\label{eq:fnje90}
+ \R = \frac{\sum_{j=1}^N m_j \r_j}{\sum_{j=1}^N m_j}\, .
+\end{align}\]</div>
+<p>Here, the <span class="math notranslate nohighlight">\(\sum\)</span> symbol means that we sum over all <span class="math notranslate nohighlight">\(j\)</span> from 1 to <span class="math notranslate nohighlight">\(N\)</span>. The positions of the particles with respect to the centre of mass are <span class="math notranslate nohighlight">\(\r_j' = \r_j - \R\)</span>, and if we use the <span class="math notranslate nohighlight">\(\r_j'\)</span> for our description of the particles’ motion, the centre of mass always lies at the origin. This is often very convenient in calculations.</p>
+<p>The velocity of the centre of mass can be found directly by differentiating <span class="math notranslate nohighlight">\(\R\)</span> with time:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ce2dcfa8-72fe-4c62-a937-73b8fc2d7ea6">
+<span class="eqno">(75)<a class="headerlink" href="#equation-ce2dcfa8-72fe-4c62-a937-73b8fc2d7ea6" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \V = \frac{\d\R}{\d t} = \frac{1}{M} \sum_{j=1}^N m_j \frac{\d\r_j}{\d t} =  \frac{1}{M} \sum_{j=1}^N m_j \v_j = \frac{1}{M} \sum_j \p_j\, .
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(M=\sum_j m_j\)</span> is the total, time independent, mass of the system. We can define the total momentum <span class="math notranslate nohighlight">\(\P = \sum_j \p_j\)</span>, such that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-270fb618-d3e9-4287-aab1-3d0562c4dcd6">
+<span class="eqno">(76)<a class="headerlink" href="#equation-270fb618-d3e9-4287-aab1-3d0562c4dcd6" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \P = M\V\, .
+\end{align}\]</div>
+<p>This means that the total momentum is the total mass times the velocity of the centre of mass. When two constituent masses in this system exchange momentum, for example due to a collision, one part gains <span class="math notranslate nohighlight">\(\Delta\p\)</span>, while the other part loses the same amount, <span class="math notranslate nohighlight">\(-\Delta\p\)</span>. This is ensured by Newton’s third law. That means that the overall momentum <span class="math notranslate nohighlight">\(\P\)</span> remains the same, even if the constituent parts are a swirling mess of interacting bodies. Only an <em>external</em> force <span class="math notranslate nohighlight">\(\F_{\rm ext}\)</span> can change <span class="math notranslate nohighlight">\(\P\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-3e9a31a2-e2d0-45a6-8b75-c4dbeeddad36">
+<span class="eqno">(77)<a class="headerlink" href="#equation-3e9a31a2-e2d0-45a6-8b75-c4dbeeddad36" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F_{\rm ext} = \frac{\d\P}{\d t}\, .
+\end{align}\]</div>
+<p>This is Newton’s second law again. It means that we can solve the motion of complex bodies if we consider the position and momentum of the centre of mass. It is also why we can treat planets and stars as point objects.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture3.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Lecture 3: Vectors</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture5.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 5: Conservation of energy and momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#force-balance">Force balance</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-third-law">Newton’s third law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#momentum">Momentum</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#centre-of-mass">Centre of mass</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

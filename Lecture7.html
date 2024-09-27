@@ -1,0 +1,774 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Polar coordinates and circular motion &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture7';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Angular momentum" href="Lecture8.html" />
+    <link rel="prev" title="Applications" href="Lecture6.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture7.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture7.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Polar coordinates and circular motion</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-coordinates">Polar coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-polar-coordinates">Derivatives of polar coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circular-motion">Circular motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-and-cylindrical-coordinates">Spherical and cylindrical coordinates</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="polar-coordinates-and-circular-motion">
+<h1>Polar coordinates and circular motion<a class="headerlink" href="#polar-coordinates-and-circular-motion" title="Link to this heading">#</a></h1>
+<section id="polar-coordinates">
+<h2>Polar coordinates<a class="headerlink" href="#polar-coordinates" title="Link to this heading">#</a></h2>
+<p>When an object moves in a circle in the <span class="math notranslate nohighlight">\(xy\)</span>-plane around the origin <span class="math notranslate nohighlight">\(O\)</span>, the <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates as a function of time are given by</p>
+<div class="math notranslate nohighlight" id="equation-fnju28">
+<span class="eqno">(127)<a class="headerlink" href="#equation-fnju28" title="Link to this equation">#</a></span>\[ x(t) = a \cos\omega t \qquad\text{and}\qquad y(t) = a \sin\omega t\, ,\]</div>
+<p>where in this case the object lies on the <span class="math notranslate nohighlight">\(x\)</span>-axis at time <span class="math notranslate nohighlight">\(t=0\)</span>, and the radius of the circle is <span class="math notranslate nohighlight">\(a\)</span>. The <em>angular</em> velocity of the particle is <span class="math notranslate nohighlight">\(\omega\)</span>, to which we will return in a moment. The <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> coordinates are components of a two-dimensional vector</p>
+<div class="amsmath math notranslate nohighlight" id="equation-eb583547-f99e-46b5-85e6-8bc5caf34fcf">
+<span class="eqno">(128)<a class="headerlink" href="#equation-eb583547-f99e-46b5-85e6-8bc5caf34fcf" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \r(t) = \begin{pmatrix} x(t) \\ y(t) \end{pmatrix}\, ,
+\end{align}\]</div>
+<p>as we encountered before. While the Cartesian coordinates <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span> (and <span class="math notranslate nohighlight">\(z\)</span> in three dimensions) are often very convenient, for circular motion there are other coordinates that are more convenient, namely <em>polar</em> coordinates <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>. Here <span class="math notranslate nohighlight">\(r\)</span> is the distance to the origin, and <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between the <span class="math notranslate nohighlight">\(x\)</span>-axis and the line from the origin to the object’s position. The reason these polar coordinates are more convenient is that for the circular motion above the distance to the origin stays constant (<span class="math notranslate nohighlight">\(r=a\)</span>), so we should be able to reduce the two-coordinate problem (<span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>) to a single-coordinate problem (<span class="math notranslate nohighlight">\(\theta\)</span> only).</p>
+<figure class="align-default" id="fig-dfhgjkgfhtd">
+<a class="reference internal image-reference" href="_images/polar2.png"><img alt="_images/polar2.png" src="_images/polar2.png" style="width: 400px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 9 </span><span class="caption-text">Polar coordinates against a grid of Cartesian coordinates.</span><a class="headerlink" href="#fig-dfhgjkgfhtd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>The relation between the Cartesian coordinates and the polar coordinates is given by</p>
+<div class="math notranslate nohighlight" id="equation-nfru489weridgn">
+<span class="eqno">(129)<a class="headerlink" href="#equation-nfru489weridgn" title="Link to this equation">#</a></span>\[ x = r \cos\theta \qquad\text{and}\qquad y = r \sin\theta\, .\]</div>
+<p>Note that these are always true, and carry a completely different meaning than the expressions in equation <a class="reference internal" href="#equation-fnju28">(127)</a>, which look superficially similar. Equation <a class="reference internal" href="#equation-fnju28">(127)</a> describes the motion of a particle over time, while equation <a class="reference internal" href="#equation-nfru489weridgn">(129)</a> describes the relation between two coordinate systems.</p>
+<p>We can invert equation <a class="reference internal" href="#equation-nfru489weridgn">(129)</a> to get <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> in terms of <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-mnjfdehiru9w">
+<span class="eqno">(130)<a class="headerlink" href="#equation-mnjfdehiru9w" title="Link to this equation">#</a></span>\[ r = \sqrt{x^2+y^2} \qquad\text{and}\qquad \theta = \arctan\left(\frac{y}{x}\right)\, .\]</div>
+<p>This means that <span class="math notranslate nohighlight">\(r\)</span> runs from zero to infinity (we take the positive square root), and <span class="math notranslate nohighlight">\(\theta\)</span> runs from zero to <span class="math notranslate nohighlight">\(2\pi\)</span> (This is another difference between equation <a class="reference internal" href="#equation-fnju28">(127)</a> and equation <a class="reference internal" href="#equation-nfru489weridgn">(129)</a>: the mapping between coordinate systems has to make sure the plane is covered exactly once by each coordinate system, whereas <span class="math notranslate nohighlight">\(\omega t\)</span> can take values much greater than <span class="math notranslate nohighlight">\(2\pi\)</span> as it describes the trajectory of a particle going around in circles indefinitely.):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9bf3af7d-0a0e-4d42-8e40-8cb412d786c0">
+<span class="eqno">(131)<a class="headerlink" href="#equation-9bf3af7d-0a0e-4d42-8e40-8cb412d786c0" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r \in [0,\infty) \qquad\text{and}\qquad \theta \in [0,2\pi)\, .
+\end{align}\]</div>
+<p>We can write the motion of the object in equation <a class="reference internal" href="#equation-fnju28">(127)</a> in terms of polar coordinates as</p>
+<div class="math notranslate nohighlight" id="equation-jiohugvycftdr6ft">
+<span class="eqno">(132)<a class="headerlink" href="#equation-jiohugvycftdr6ft" title="Link to this equation">#</a></span>\[ r(t) = a = \text{constant}  \qquad\text{and}\qquad \theta(t) =  \omega t\, .\]</div>
+<p>This means, as noted before, that we have to worry only about <span class="math notranslate nohighlight">\(\theta\)</span> as a variable with respect to time. More general motion will again require two variables <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, or <span class="math notranslate nohighlight">\(x\)</span> and <span class="math notranslate nohighlight">\(y\)</span>. As a rule of thumb, if the motion looks more like linear motion (but not quite), Cartesian coordinates may be better, and if it is closer to circular motion polar coordinates are likely better.</p>
+<p>Returning to our example, we have to consider the basis vectors of our coordinate systems. For the Cartesian system this is simple:</p>
+<div class="math notranslate nohighlight" id="equation-kmlgjnerhitu2380eiwjof">
+<span class="eqno">(133)<a class="headerlink" href="#equation-kmlgjnerhitu2380eiwjof" title="Link to this equation">#</a></span>\[\begin{split} \r(t) = \begin{pmatrix} a\cos\omega t \\ a \sin\omega t \end{pmatrix} = a\cos\omega t \begin{pmatrix} 1 \\ 0 \end{pmatrix} + a\sin\omega t\begin{pmatrix} 0 \\ 1 \end{pmatrix} = a\cos\omega t\; \basis{x} + a\sin\omega t\; \basis{y}\, ,\end{split}\]</div>
+<p>where we introduced the basis vectors</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b0018aa7-5d09-43bb-a4da-edcdccf7d9a3">
+<span class="eqno">(134)<a class="headerlink" href="#equation-b0018aa7-5d09-43bb-a4da-edcdccf7d9a3" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \basis{x}= \begin{pmatrix} 1 \\ 0 \end{pmatrix} \qquad\text{and}\qquad \basis{y} = \begin{pmatrix} 0 \\ 1 \end{pmatrix} \, .
+\end{align}\]</div>
+<p>Wherever we are in the <span class="math notranslate nohighlight">\(xy\)</span>-plane, the basis vector <span class="math notranslate nohighlight">\(\basis{x}\)</span> always points in the direction of the positive <span class="math notranslate nohighlight">\(x\)</span>-axis, and the basis vector <span class="math notranslate nohighlight">\(\basis{y}\)</span> always points in the direction of the positive <span class="math notranslate nohighlight">\(y\)</span>-axis. However, the basis vectors <span class="math notranslate nohighlight">\(\basis{r}\)</span> and <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> point in different directions at different locations in the plane. The vector <span class="math notranslate nohighlight">\(\basis{r}\)</span> always points away from the origin, while <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> is orthogonal to <span class="math notranslate nohighlight">\(\basis{r}\)</span> and lies tangential to the circle centred around the origin and intersecting the point <span class="math notranslate nohighlight">\((r,\theta)\)</span>. It points in the counter-clockwise direction.</p>
+<figure class="align-default" id="fig-ndgjkehiuro">
+<img alt="_images/polar.png" src="_images/polar.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 10 </span><span class="caption-text">Changing basis vectors in polar coordinates.</span><a class="headerlink" href="#fig-ndgjkehiuro" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>If you want to know the basis vectors <span class="math notranslate nohighlight">\(\basis{r}\)</span> and <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> in terms of <span class="math notranslate nohighlight">\(\basis{x}\)</span> and <span class="math notranslate nohighlight">\(\basis{y}\)</span>, you have to use trigonometry. You can readily infer from figure 10 that this gives</p>
+<div class="math notranslate nohighlight" id="equation-vngjehuor9">
+<span class="eqno">(135)<a class="headerlink" href="#equation-vngjehuor9" title="Link to this equation">#</a></span>\[ \basis{r} = \cos\theta\; \basis{x} + \sin\theta\; \basis{y} \qquad\text{and}\qquad \basis{\theta} = -\sin\theta\; \basis{x} + \cos\theta\; \basis{y}\, .\]</div>
+<p>We will use these relations a lot in what follows. The changing directions of <span class="math notranslate nohighlight">\(\basis{r}\)</span> and <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> become particularly important when we take derivatives, for example when we want to work out the velocity and acceleration of an object. We will show how this works in a moment. First, what does a vector <span class="math notranslate nohighlight">\(\r\)</span> look like in polar coordinates? It is remarkably compact:</p>
+<div class="math notranslate nohighlight" id="equation-gnehu94woriufd">
+<span class="eqno">(136)<a class="headerlink" href="#equation-gnehu94woriufd" title="Link to this equation">#</a></span>\[ \r = r\, \basis{r} = a\, \basis{r}\, ,\]</div>
+<p>where the second equality is specifically for our example. You should convince yourself by drawing <span class="math notranslate nohighlight">\(\r\)</span> and <span class="math notranslate nohighlight">\(\basis{r}\)</span> that there is no <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> contribution in the expression of the general vector <span class="math notranslate nohighlight">\(\r\)</span> in polar coordinates.</p>
+</section>
+<section id="derivatives-of-polar-coordinates">
+<h2>Derivatives of polar coordinates<a class="headerlink" href="#derivatives-of-polar-coordinates" title="Link to this heading">#</a></h2>
+<p>For the object in circular motion in equation <a class="reference internal" href="#equation-fnju28">(127)</a>, we want to know what is its velocity. In Cartesian coordinates this follows the usual procedure. We use the recipe from the third lecture and work out the time derivative of <span class="math notranslate nohighlight">\(\r\)</span>:</p>
+<div class="math notranslate nohighlight" id="equation-nvgehuit394woej">
+<span class="eqno">(137)<a class="headerlink" href="#equation-nvgehuit394woej" title="Link to this equation">#</a></span>\[\begin{split} \v(t) = \frac{\d \r}{\d t} = \frac{\d }{\d t} \begin{pmatrix} a\cos\omega t \\ a \sin\omega t \end{pmatrix} = \begin{pmatrix} -a\omega\sin\omega t \\ a\omega \cos\omega t \end{pmatrix} \, .\end{split}\]</div>
+<p>We have to take derivatives of sines and cosines, but we know how to do that. The velocity of the particle has a constant magnitude</p>
+<div class="amsmath math notranslate nohighlight" id="equation-03c56a4a-0c9f-49de-aba6-44d4109c11e7">
+<span class="eqno">(138)<a class="headerlink" href="#equation-03c56a4a-0c9f-49de-aba6-44d4109c11e7" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v &amp;= |\v(t)| = \sqrt{(-a \omega\sin\omega t)^2 + (a\omega \cos\omega t)^2} = a\omega \sqrt{\sin^2\omega t + \cos^2\omega t} \cr &amp; = a\omega\, .
+\end{align}\]</div>
+<p>This is how the <em>angular</em> velocity <span class="math notranslate nohighlight">\(\omega\)</span> relates to the regular velocity <span class="math notranslate nohighlight">\(v\)</span>. The greater the radius <span class="math notranslate nohighlight">\(a\)</span> of the circle, the larger the velocity <span class="math notranslate nohighlight">\(v\)</span> must be to keep up with the same angular velocity <span class="math notranslate nohighlight">\(\omega\)</span>.  The direction of <span class="math notranslate nohighlight">\(\v\)</span> changes over time (as you can clearly visualise for circular motion), and in terms of Cartesian coordinates we can write this as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a767685d-642d-4c6e-9302-3888156041f2">
+<span class="eqno">(139)<a class="headerlink" href="#equation-a767685d-642d-4c6e-9302-3888156041f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \v = -v\sin\omega t \; \basis{x} + v\cos\omega t\; \basis{y}\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\basis{x}\)</span> and <span class="math notranslate nohighlight">\(\basis{y}\)</span> are again (still!) constant at every position, and therefore constant over time, as our object moves from point to point in the plane.
+From equation <a class="reference internal" href="#equation-vngjehuor9">(135)</a> we can see that the velocity of the circular motion always points in the tangential <span class="math notranslate nohighlight">\(\theta\)</span> direction:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-385f6ae3-d3fc-46f3-b81c-aeb992631396">
+<span class="eqno">(140)<a class="headerlink" href="#equation-385f6ae3-d3fc-46f3-b81c-aeb992631396" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \v = v\, \basis{\theta}\, .
+\end{align}\]</div>
+<p>This reflects the fact that the basis vector <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> changes over time, since the direction of <span class="math notranslate nohighlight">\(\v\)</span> changes over time but the magnitude <span class="math notranslate nohighlight">\(v\)</span> is constant. This is a special case of the more general result we found in lecture 3, where the velocity is always tangent to the path of a particle.</p>
+<p>Next, let’s consider the velocity of the object in polar coordinates.  We take the time derivative of <span class="math notranslate nohighlight">\(\r\)</span> in equation <a class="reference internal" href="#equation-gnehu94woriufd">(136)</a> to get</p>
+<div class="math notranslate nohighlight" id="equation-vgrho34jis">
+<span class="eqno">(141)<a class="headerlink" href="#equation-vgrho34jis" title="Link to this equation">#</a></span>\[ \v(t) = \frac{\d\r}{\d t} =  a \frac{\d \basis{r}}{\d t}\, ,\]</div>
+<p>where we used that <span class="math notranslate nohighlight">\(a\)</span> is a constant. Clearly, we need to know how to take the time derivative of the basis vector <span class="math notranslate nohighlight">\(\basis{r}\)</span>. It cannot be zero, since that would make the velocity zero, and that is obviously wrong. The time derivative needs to be expressed in terms of  <span class="math notranslate nohighlight">\(\basis{r}\)</span> and <span class="math notranslate nohighlight">\(\basis{\theta}\)</span> themselves (which we can always do, because <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> form a proper coordinate system for any vector). We can start with equation <a class="reference internal" href="#equation-vngjehuor9">(135)</a> and use the fact that <span class="math notranslate nohighlight">\(\basis{x}\)</span> and <span class="math notranslate nohighlight">\(\basis{y}\)</span> do not change and thus their time derivative is zero:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-08b280da-b36b-43c1-867e-8f731b6d75df">
+<span class="eqno">(142)<a class="headerlink" href="#equation-08b280da-b36b-43c1-867e-8f731b6d75df" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \frac{\d\basis{r}}{\d t} &amp;=  \frac{\d}{\d t} \left( \cos\theta\; \basis{x} + \sin\theta\; \basis{y} \right)  = -\sin\theta \frac{\d\theta}{\d t} \; \basis{x} + \cos\theta  \frac{\d\theta}{\d t}\; \basis{y} \cr
+  &amp; =  \frac{\d\theta}{\d t} \left(-\sin\theta\; \basis{x} + \cos\theta\; \basis{y} \right) = \frac{\d\theta}{\d t}\; \basis{\theta}\, .
+\end{align}\]</div>
+<p>Similarly,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ead47413-02d1-4a13-8029-87307dd68361">
+<span class="eqno">(143)<a class="headerlink" href="#equation-ead47413-02d1-4a13-8029-87307dd68361" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \frac{\d\basis{\theta}}{\d t} &amp;=  \frac{\d}{\d t} \left( -\sin\theta\; \basis{x} + \cos\theta\; \basis{y}  \right) = -\cos\theta \frac{\d\theta}{\d t} \; \basis{x} - \sin\theta  \frac{\d\theta}{\d t}\; \basis{y} \cr
+  &amp; = - \frac{\d\theta}{\d t} \left(\cos\theta\; \basis{x} + \sin\theta\; \basis{y} \right) = - \frac{\d\theta}{\d t}\; \basis{r}\, .
+\end{align}\]</div>
+<p>We collect these two important results in the following equation:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-nrijweofdfd">
+<span class="eqno">(144)<a class="headerlink" href="#equation-nrijweofdfd" title="Link to this equation">#</a></span>\[ \frac{\d\basis{r}}{\d t} =  \frac{\d\theta}{\d t}\; \basis{\theta} \qquad\text{and}\qquad \frac{\d\basis{\theta}}{\d t} = - \frac{\d\theta}{\d t}\; \basis{r}\, .\]</div>
+</div></blockquote>
+<p>These are the same relations between <span class="math notranslate nohighlight">\(\hat{e}_T\)</span> and <span class="math notranslate nohighlight">\(\hat{e}_N\)</span> in the third lecture.
+Remembering that <span class="math notranslate nohighlight">\(\theta(t) = \omega t\)</span>, and substituting equation <a class="reference internal" href="#equation-nrijweofdfd">(144)</a> in the expression for <span class="math notranslate nohighlight">\(\v\)</span>, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-20bf0064-f2c6-4397-b6d8-bb43d3cd6d8f">
+<span class="eqno">(145)<a class="headerlink" href="#equation-20bf0064-f2c6-4397-b6d8-bb43d3cd6d8f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \v(t) &amp; = a  \frac{\d\theta}{\d t}\, \basis{\theta} = a\omega\,  \basis{\theta}\, ,
+\end{align}\]</div>
+<p>as required. Notice how the actual calculation in equation <a class="reference internal" href="#equation-vgrho34jis">(141)</a> using equation <a class="reference internal" href="#equation-nrijweofdfd">(144)</a> and equation <a class="reference internal" href="#equation-jiohugvycftdr6ft">(132)</a> is computationally very simple—much simpler than the derivatives of the sines and cosines! Here it is again in a streamlined version:</p>
+<blockquote>
+<div><p>The polar coordinates of the object are given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ca3b3bdb-f8c2-4000-af23-0cccd6cdcfad">
+<span class="eqno">(146)<a class="headerlink" href="#equation-ca3b3bdb-f8c2-4000-af23-0cccd6cdcfad" title="Permalink to this equation">#</a></span>\[\begin{align}
+  r = a \qquad\text{and}\qquad \theta = \omega t\, .
+ \end{align}\]</div>
+<p>The velocity <span class="math notranslate nohighlight">\(\v\)</span> of the object is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7df9e362-50f9-4a82-b227-f1061eb7dedf">
+<span class="eqno">(147)<a class="headerlink" href="#equation-7df9e362-50f9-4a82-b227-f1061eb7dedf" title="Permalink to this equation">#</a></span>\[\begin{align}
+  \v = \frac{\d\r}{\d t} = a \frac{\d\basis{r}}{\d t} = a \frac{\d\theta}{\d t}\, \basis{\theta} = a\omega\, \basis{\theta}\, .
+ \end{align}\]</div>
+<p>That’s it. From this we can read off immediately that the speed is <span class="math notranslate nohighlight">\(v = a\omega\)</span>.</p>
+</div></blockquote>
+<p>This calculation is so much simpler because the coordinate system matches the shape of the motion. You may object that equation <a class="reference internal" href="#equation-nrijweofdfd">(144)</a> was hard to find, but that is a <em>general</em> result, which holds for any motion in polar coordinates. You may still rather do the familiar calculus with sines and cosines in this case, but when we have non-uniform acceleration around the circle the calculation in Cartesian coordinates quickly become intractable. For example, consider the case where the rotation speed increases linearly with time (<span class="math notranslate nohighlight">\(\theta = \frac12\alpha t^2\)</span>). Calculate the vector <span class="math notranslate nohighlight">\(\v(t)\)</span> in Cartesian coordinates and in polar coordinates and see the difference. Another example is the Archimedean spiral, where the radius increases linearly with <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="circular-motion">
+<h2>Circular motion<a class="headerlink" href="#circular-motion" title="Link to this heading">#</a></h2>
+<p>For uniform rotations in <em>three</em> dimensions, where the angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> is constant, there is another convenient and often-used description of circular motion that involves the <em>cross product</em>. The cross product between two vectors <span class="math notranslate nohighlight">\(\a\)</span> and <span class="math notranslate nohighlight">\(\b\)</span> is written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7b9327fb-823b-404b-a287-21e3fc0f6ffe">
+<span class="eqno">(148)<a class="headerlink" href="#equation-7b9327fb-823b-404b-a287-21e3fc0f6ffe" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \a\times\b = (a_y b_z - a_z b_y) \basis{x} + (a_z b_x - a_x b_z) \basis{y} + (a_x b_y - a_y b_x) \hat{\z}\, .
+\end{align}\]</div>
+<p>This can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4aedd25e-b6cf-4f58-8711-92f5b85025fe">
+<span class="eqno">(149)<a class="headerlink" href="#equation-4aedd25e-b6cf-4f58-8711-92f5b85025fe" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \a\times\b = ab\sin\theta \, \hat{e}_N\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\theta\)</span> is the angle between <span class="math notranslate nohighlight">\(\a\)</span> and <span class="math notranslate nohighlight">\(\b\)</span>, and <span class="math notranslate nohighlight">\(\hat{e}_N\)</span> is the vector normal to the plane spanned by <span class="math notranslate nohighlight">\(\a\)</span> and <span class="math notranslate nohighlight">\(\b\)</span>. This plane has an orientation: if the fingers on your right hand point in the direction as you rotate the vector <span class="math notranslate nohighlight">\(\a\)</span> to vector <span class="math notranslate nohighlight">\(\b\)</span>, your thumb will point in the direction of <span class="math notranslate nohighlight">\(\hat{e}_N\)</span>.</p>
+<p>Define the angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2272de3e-2ffb-47be-bd18-4fb3d4af8533">
+<span class="eqno">(150)<a class="headerlink" href="#equation-2272de3e-2ffb-47be-bd18-4fb3d4af8533" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \omega = \frac{\d \theta}{\d t}\, ,
+\end{align}\]</div>
+<p>as before. The speed along a circle with radius <span class="math notranslate nohighlight">\(R\)</span> is then</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d6c9c749-673d-472e-a378-2836d7880595">
+<span class="eqno">(151)<a class="headerlink" href="#equation-d6c9c749-673d-472e-a378-2836d7880595" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v = \omega R\, .
+\end{align}\]</div>
+<p>However, in three dimensions not all possible points lie in the <span class="math notranslate nohighlight">\(xy\)</span>-plane, and we want a relation between <span class="math notranslate nohighlight">\(\v\)</span>, <span class="math notranslate nohighlight">\(\r\)</span>, and <span class="math notranslate nohighlight">\(\omega\)</span>. To this end we orient <span class="math notranslate nohighlight">\(\omega\)</span> along the <span class="math notranslate nohighlight">\(z\)</span>-axis, so we can write <span class="math notranslate nohighlight">\(\vec{\omega} = \omega \hat{\z}\)</span>, and we pick a point <span class="math notranslate nohighlight">\(A\)</span> along a circle with radius <span class="math notranslate nohighlight">\(R\)</span> above the <span class="math notranslate nohighlight">\(xy\)</span>-plane. The position vector pointing to <span class="math notranslate nohighlight">\(A\)</span> is <span class="math notranslate nohighlight">\(\r\)</span>. This is shown in Fig. 11.</p>
+<figure class="align-default" id="fig-lkghture4wjiohu">
+<a class="reference internal image-reference" href="_images/cirkelbeweging.png"><img alt="_images/cirkelbeweging.png" src="_images/cirkelbeweging.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 11 </span><span class="caption-text">Vector relation between (constant) angular velocity <span class="math notranslate nohighlight">\(\vec{\omega}\)</span>, linear velocity <span class="math notranslate nohighlight">\(\v\)</span> and position <span class="math notranslate nohighlight">\(\r\)</span>.</span><a class="headerlink" href="#fig-lkghture4wjiohu" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>From the figure, <span class="math notranslate nohighlight">\(R = r\sin\gamma\)</span>, with <span class="math notranslate nohighlight">\(\gamma\)</span> the angle between the vector <span class="math notranslate nohighlight">\(\hat{\z}\)</span> and <span class="math notranslate nohighlight">\(\r\)</span>. Hence, the linear speed around the circle is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5bd5edca-8f17-4983-bc4c-63f2877724cd">
+<span class="eqno">(152)<a class="headerlink" href="#equation-5bd5edca-8f17-4983-bc4c-63f2877724cd" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v = \omega r \sin\gamma\, .
+\end{align}\]</div>
+<p>However, this can be written as a cross product between <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> and <span class="math notranslate nohighlight">\(\r\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8230dd18-00a3-4646-9436-fdf21b94e49f">
+<span class="eqno">(153)<a class="headerlink" href="#equation-8230dd18-00a3-4646-9436-fdf21b94e49f" title="Permalink to this equation">#</a></span>\[\begin{align}%\label{eq:njbgtuehoi4wrnd}
+ \v = \vec{\omega}\times\r\, .
+\end{align}\]</div>
+<p>This is true only for circular motion with constant <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\gamma\)</span>. While this is neat and compact, it is not so clear yet why this is a nice form. However, it allows us to treat the time derivative <span class="math notranslate nohighlight">\(\d/\d t\)</span> in the case of constant circular motion as the cross product with the angular velocity: <span class="math notranslate nohighlight">\(\vec{\omega}\times\cdot\)</span>. We can find the acceleration from the time derivative of <span class="math notranslate nohighlight">\(\v\)</span>, and therefore for circular motion with constant <span class="math notranslate nohighlight">\(\omega\)</span> we obtain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1bca9bb3-71ab-4ba8-9727-35b1ed8fa302">
+<span class="eqno">(154)<a class="headerlink" href="#equation-1bca9bb3-71ab-4ba8-9727-35b1ed8fa302" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \a = \frac{\d\v}{\d t} = \frac{\d}{\d t} \vec{\omega}\times\r = \vec{\omega}\times \frac{\d\r}{\d t} = \vec{\omega}\times\v\, .
+\end{align}\]</div>
+<p>In its most useful form, we have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fcd57c94-9f53-4265-bd67-731cd3ffaf33">
+<span class="eqno">(155)<a class="headerlink" href="#equation-fcd57c94-9f53-4265-bd67-731cd3ffaf33" title="Permalink to this equation">#</a></span>\[\begin{align}%\label{eq:nfvjrowu32wireh}
+ \a = \vec{\omega}\times(\vec{\omega}\times\r)\, .
+\end{align}\]</div>
+<figure class="align-default" id="fig-tryuyujythrt">
+<a class="reference internal image-reference" href="_images/cirkelbeweging2.png"><img alt="_images/cirkelbeweging2.png" src="_images/cirkelbeweging2.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 12 </span><span class="caption-text">Acceleration towards the centre <span class="math notranslate nohighlight">\(M\)</span>.</span><a class="headerlink" href="#fig-tryuyujythrt" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="spherical-and-cylindrical-coordinates">
+<h2>Spherical and cylindrical coordinates<a class="headerlink" href="#spherical-and-cylindrical-coordinates" title="Link to this heading">#</a></h2>
+<p>In three dimensions, there are two main sets of coordinates associated with rotational motion: cylindrical and spherical. Their names give you a clue when you want to use what. These coordinate systems will be discussed in detail in the rest of your degree, so here we only give their relation to the Cartesian coordinates.</p>
+<p>Cylindrical coordinates are very much like polar coordinates, but supplemented with a “Cartesian” third dimension, <span class="math notranslate nohighlight">\(z\)</span>. Instead of <span class="math notranslate nohighlight">\(r\)</span> as the distance to the origin, we typically use <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span>. Do not confuse <span class="math notranslate nohighlight">\(\rho\)</span> with a density!</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2e9c20f0-d116-4682-8dd0-d01fe5e84c9f">
+<span class="eqno">(156)<a class="headerlink" href="#equation-2e9c20f0-d116-4682-8dd0-d01fe5e84c9f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ x &amp; = \rho \cos\phi \cr
+ y &amp; = \rho \sin\phi \cr
+ z &amp; = z\, .
+\end{align}\]</div>
+<p>The last one feels a bit redundant, but it reminds us that there is a third dimension. You should work out <span class="math notranslate nohighlight">\(\rho\)</span> and <span class="math notranslate nohighlight">\(\phi\)</span> in terms of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<figure class="align-default" id="fig-luikyjtrdgfhj">
+<a class="reference internal image-reference" href="_images/cylindrical.png"><img alt="_images/cylindrical.png" src="_images/cylindrical.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 13 </span><span class="caption-text">Cylindrical coordinates</span><a class="headerlink" href="#fig-luikyjtrdgfhj" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Spherical coordinates are often the coordinates of choice when the potential depends only on <span class="math notranslate nohighlight">\(r\)</span>, the distance to the origin. They are defined by the relations</p>
+<div class="amsmath math notranslate nohighlight" id="equation-5bcd8d7a-a984-4cef-9365-13d7267867f2">
+<span class="eqno">(157)<a class="headerlink" href="#equation-5bcd8d7a-a984-4cef-9365-13d7267867f2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ x &amp; = r \cos\phi\sin\theta \cr
+ y &amp; = r \sin\phi\sin\theta \cr
+ z &amp; = r\cos\theta\, .
+\end{align}\]</div>
+<p>You should construct the inverse relation, specifying <span class="math notranslate nohighlight">\(r\)</span>, <span class="math notranslate nohighlight">\(\theta\)</span>, and <span class="math notranslate nohighlight">\(\phi\)</span> in terms of <span class="math notranslate nohighlight">\(x\)</span>, <span class="math notranslate nohighlight">\(y\)</span>, and <span class="math notranslate nohighlight">\(z\)</span>.</p>
+<figure class="align-default" id="fig-tryuhftg">
+<a class="reference internal image-reference" href="_images/spherical.jpg"><img alt="_images/spherical.jpg" src="_images/spherical.jpg" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 14 </span><span class="caption-text">Spherical coordinates.</span><a class="headerlink" href="#fig-tryuhftg" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture6.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Applications</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture8.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Angular momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#polar-coordinates">Polar coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#derivatives-of-polar-coordinates">Derivatives of polar coordinates</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#circular-motion">Circular motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#spherical-and-cylindrical-coordinates">Spherical and cylindrical coordinates</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

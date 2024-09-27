@@ -1,0 +1,646 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Angular momentum &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture8';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Rotating rigid bodies" href="Lecture9.html" />
+    <link rel="prev" title="Polar coordinates and circular motion" href="Lecture7.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture8.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture8.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Angular momentum</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="angular-momentum">
+<h1>Angular momentum<a class="headerlink" href="#angular-momentum" title="Link to this heading">#</a></h1>
+<p>As we have seen, the momentum <span class="math notranslate nohighlight">\(\p\)</span> of a body with mass <span class="math notranslate nohighlight">\(m\)</span> is the amount of <em>linear</em> motion of the body. To change this amount of linear motion, we need to apply a force <span class="math notranslate nohighlight">\(\F = \d\p/\d t\)</span>. The situation changes somewhat when we consider <em>rotational</em> motion. We cannot merely apply a force to set a body in motion, we need a <em>moment</em>, or <em>torque</em> <span class="math notranslate nohighlight">\(\vec{\tau}\)</span>. You are already familiar with torque: a lever or see-saw has two forces (e.g., gravity at the end of the see-saw and the normal force at the fulcrum), in opposite direction and with a distance <span class="math notranslate nohighlight">\(d\)</span> apart. You have been writing this as <span class="math notranslate nohighlight">\(\tau = Fd\)</span>. Now we will give this expression its proper vector form (not least because in this form <span class="math notranslate nohighlight">\(Fd\)</span> could be mistaken for work!).</p>
+<figure class="align-default" id="fig-grfksdnklmx">
+<a class="reference internal image-reference" href="_images/fulcrum.png"><img alt="_images/fulcrum.png" src="_images/fulcrum.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 15 </span><span class="caption-text">Torque as a combination of vectors <span class="math notranslate nohighlight">\(\r\)</span> and <span class="math notranslate nohighlight">\(\F_{\rm applied}\)</span>.</span><a class="headerlink" href="#fig-grfksdnklmx" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Consider the see-saw. Let <span class="math notranslate nohighlight">\(\F\)</span> be the force down on the tip of the see-saw, and let <span class="math notranslate nohighlight">\(\r\)</span> be the distance vector from the fulcrum to the top of the see-saw where the force <span class="math notranslate nohighlight">\(\F\)</span> is applied. This will create a torque <span class="math notranslate nohighlight">\(\vec{\tau}\)</span> that points in the direction of the angular velocity <span class="math notranslate nohighlight">\(\vec{\omega}\)</span>. All these vectors are perpendicular, so we must use the cross product to relate them. When we work out the directions (do this!) we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4adb6e60-a1b5-4f6c-abc7-d69e64adf20e">
+<span class="eqno">(158)<a class="headerlink" href="#equation-4adb6e60-a1b5-4f6c-abc7-d69e64adf20e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \vec{\tau}  = \r\times \F = \r\times \frac{\d\p}{\d t}\, .
+\end{align}\]</div>
+<p>We can write the time derivative of <span class="math notranslate nohighlight">\(\p\)</span> in terms of the chain rule on the whole cross product <span class="math notranslate nohighlight">\(\r\times\p\)</span> using</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f5c206d5-409c-49db-80b3-2cc9b9dca469">
+<span class="eqno">(159)<a class="headerlink" href="#equation-f5c206d5-409c-49db-80b3-2cc9b9dca469" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d}{\d t} (\r\times\p) =  \frac{\d\r}{\d t} \times \p + \r\times \frac{\d\p}{\d t}\, .
+\end{align}\]</div>
+<p>The term <span class="math notranslate nohighlight">\(\dot{\r}\times \p\)</span> is zero because <span class="math notranslate nohighlight">\(\dot{\r}=\v\)</span> and <span class="math notranslate nohighlight">\(\p =m\v\)</span> are parallel, and we can therefore write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f3bda388-a84a-4e1d-bd5b-d8d56034a77a">
+<span class="eqno">(160)<a class="headerlink" href="#equation-f3bda388-a84a-4e1d-bd5b-d8d56034a77a" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \tau =  \frac{\d }{\d t} (\r\times\p) \equiv \frac{\d \L}{\d t} \qquad\text{with}\qquad \L = \r\times\p\, .
+\end{align}\]</div>
+<p>The quantity <span class="math notranslate nohighlight">\(\L\)</span> is called <em>angular momentum</em>, and it is the rotational equivalent to the linear momentum <span class="math notranslate nohighlight">\(\p\)</span>. The expression <span class="math notranslate nohighlight">\(\vec{\tau} = \dot{\L}\)</span> is the analog of <span class="math notranslate nohighlight">\(\F = \dot{\p}\)</span> for rotational motion.</p>
+<p>Just like the case where an absence of external forces leads to conservation of momentum:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f489fc48-8d0b-4942-a47b-2105be803d9a">
+<span class="eqno">(161)<a class="headerlink" href="#equation-f489fc48-8d0b-4942-a47b-2105be803d9a" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \F = 0 = \frac{\d\p}{\d t} \qquad\Rightarrow\qquad \p ~\text{is constant in time,}
+\end{align}\]</div>
+<p>so does an absence of torque lead to conservation of angular momentum:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-33187520-4d07-44af-8e95-250133f5a1e5">
+<span class="eqno">(162)<a class="headerlink" href="#equation-33187520-4d07-44af-8e95-250133f5a1e5" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \vec{\tau} = 0 = \frac{\d\L}{\d t} \qquad\Rightarrow\qquad \L ~\text{is constant in time.}
+\end{align}\]</div>
+<p>One example of this is planetary motion. The only force on a planet orbiting a star is gravity, which always points along the line connecting the planet and the star at every moment in time. Therefore, the cross product <span class="math notranslate nohighlight">\(\r\times\F = \vec{\tau}\)</span> is always zero (<span class="math notranslate nohighlight">\(\F\)</span> is in the direction of <span class="math notranslate nohighlight">\(\r\)</span>). As a consequence, the angular momentum of a planet in orbit around a star is conserved. Specifically the angular momentum at the aphelion is equal to the angular momentum at the perihelion:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f1096ec6-d59d-4e99-9ff4-a22955ac68de">
+<span class="eqno">(163)<a class="headerlink" href="#equation-f1096ec6-d59d-4e99-9ff4-a22955ac68de" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \L = \r_{\rm ap} \times \p_{\rm ap} = \r_{\rm peri} \times \p_{\rm peri}\, .
+\end{align}\]</div>
+<p>At both aphelion and perihelion the position and momentum vectors are perpendicular, so we can ignore the <span class="math notranslate nohighlight">\(\sin\theta\)</span> term in the cross product. We then have</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e86f7060-030d-4c67-9dc8-690231abfe14">
+<span class="eqno">(164)<a class="headerlink" href="#equation-e86f7060-030d-4c67-9dc8-690231abfe14" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r_{\rm ap} p_{\rm ap} = r_{\rm peri} p_{\rm peri}\, ,
+\end{align}\]</div>
+<p>where we use the convention that non-bold symbols signify the magnitude.</p>
+<p>It is because of this conservation law that angular momentum is so important and ubiquitous in physics. The orbital motion of electrons in atoms is classified by energy and angular momentum, and the entire periodic table is a direct consequence of the allowed energy and angular momentum values of the electrons. Rotating black holes have angular momentum, and this creates interesting frame dragging effects near their horizons. Gyroscopes keep their orientation in space because of conservation of angular momentum, and this allows for navigation at sea in the absence of external signals (such as the position of the stars on cloudy nights). These are just a few examples of the central importance of angular momentum in physics. You will keep encountering this topic throughout your studies.</p>
+<hr class="docutils" />
+<p>The expression <span class="math notranslate nohighlight">\(\L = \r\times\p\)</span> depends explicitly on <span class="math notranslate nohighlight">\(\r\)</span>, and therefore <span class="math notranslate nohighlight">\(\L\)</span> must always be given relative to the coordinate origin of <span class="math notranslate nohighlight">\(\r\)</span>. Often the choice of origin is so obvious that people don’t specify it, but you should always make sure that you know which origin is used to calculate the angular momentum. In atomic and planetary systems it is typically the centre of mass.</p>
+<p>As an example, let’s consider simple circular motion, where <span class="math notranslate nohighlight">\(\r\)</span> is the position vector of a particle of mass <span class="math notranslate nohighlight">\(m\)</span> moving in a circle around the origin, and <span class="math notranslate nohighlight">\(\p\)</span> is the momentum that is directed in the tangent direction to the circle. The origin of <span class="math notranslate nohighlight">\(\r\)</span> is the centre of the circle. Since <span class="math notranslate nohighlight">\(\r\)</span> and <span class="math notranslate nohighlight">\(\p\)</span> are perpendicular, we can write the magnitude of <span class="math notranslate nohighlight">\(\L=\r\times\p\)</span> as</p>
+<div class="math notranslate nohighlight" id="equation-vjgerhuoijdf">
+<span class="eqno">(165)<a class="headerlink" href="#equation-vjgerhuoijdf" title="Link to this equation">#</a></span>\[ L = rp = mrv = mr^2\omega\, ,\]</div>
+<p>where we preferred <span class="math notranslate nohighlight">\(\omega\)</span> to <span class="math notranslate nohighlight">\(v\)</span> because the angular velocity is more natural to use here (<span class="math notranslate nohighlight">\(v = r\omega\)</span>). From the cross product we deduce that <span class="math notranslate nohighlight">\(\L\)</span> is in the same direction as <span class="math notranslate nohighlight">\(\vec{\omega}\)</span>, so we can write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-6cbdee19-4cb1-4fa8-bb1f-be434270bf1d">
+<span class="eqno">(166)<a class="headerlink" href="#equation-6cbdee19-4cb1-4fa8-bb1f-be434270bf1d" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \L = mr^2\vec{\omega}\, .
+\end{align}\]</div>
+<figure class="align-default" id="fig-gru4wojirf">
+<a class="reference internal image-reference" href="_images/angmo.png"><img alt="_images/angmo.png" src="_images/angmo.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 16 </span><span class="caption-text">Angular momentum of a particle moving along a general curved path.</span><a class="headerlink" href="#fig-gru4wojirf" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Next, consider a more general curved motion, shown in Fig. 16. At any point along the path the velocity <span class="math notranslate nohighlight">\(\v\)</span> will have a radial and a transversal component, <span class="math notranslate nohighlight">\(\v_r\)</span> and <span class="math notranslate nohighlight">\(\v_\theta\)</span>, which sum together to form <span class="math notranslate nohighlight">\(\v = \v_r + \v_\theta\)</span>. The angular momentum can then be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-679391ca-1849-4837-a645-723042acbf38">
+<span class="eqno">(167)<a class="headerlink" href="#equation-679391ca-1849-4837-a645-723042acbf38" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \L = \r\times\p = m \r\times \v = m \r\times (\v_r + \v_\theta) =   m \r\times \v_r + m\r\times \v_\theta = m\r\times \v_\theta\, .
+\end{align}\]</div>
+<p>The last equality holds because <span class="math notranslate nohighlight">\(\v_r\)</span> is parallel to <span class="math notranslate nohighlight">\(\r\)</span>, by definition, and the cross product between the two must therefore be zero. Hence <span class="math notranslate nohighlight">\(\L\)</span> always captures only the transversal part of the momentum. Also, since <span class="math notranslate nohighlight">\(v_\theta = r \d\theta/\d t\)</span>, we can write the magnitude in the most general form</p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-bgt3498yei">
+<span class="eqno">(168)<a class="headerlink" href="#equation-bgt3498yei" title="Link to this equation">#</a></span>\[L = mr^2\frac{\d\theta}{\d t}\, .\]</div>
+</div></blockquote>
+<p>When the angular velocity is constant, this reduces to equation <a class="reference internal" href="#equation-vjgerhuoijdf">(165)</a>.</p>
+<p>Another consequence of the conservation of angular momentum is that the direction of <span class="math notranslate nohighlight">\(\L\)</span> does not change. This means that the motion must be confined to a plane perpendicular to <span class="math notranslate nohighlight">\(\L\)</span>. Translating this to the orbital motion of planets, each planet must always move in a plane. Without external disturbances, no planet can drift out of this plane as it orbits the Sun.</p>
+<hr class="docutils" />
+<figure class="align-default" id="fig-hguyty9u090ouih">
+<a class="reference internal image-reference" href="_images/scattering.png"><img alt="_images/scattering.png" src="_images/scattering.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 17 </span><span class="caption-text">Scattering from a <span class="math notranslate nohighlight">\(1/r\)</span> potential</span><a class="headerlink" href="#fig-hguyty9u090ouih" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Finally, we consider the important example of the scattering of particles from a central potential, shown in Fig. 17. We assume that the central potential falls off with <span class="math notranslate nohighlight">\(1/r\)</span> (for example the electrostatic potential of a point charge), so that the force is given by <span class="math notranslate nohighlight">\(F = k/r^2\)</span>. We want to know how the scattering angle <span class="math notranslate nohighlight">\(\phi\)</span> depends on the scattering parameter <span class="math notranslate nohighlight">\(b\)</span>, the mass <span class="math notranslate nohighlight">\(m\)</span> of the particle, and its initial velocity <span class="math notranslate nohighlight">\(v_0\)</span>. First, we calculate the angular momentum of the particle. In point <span class="math notranslate nohighlight">\(A\)</span> in Fig. 17, the angular momentum is (see weekly practice problems):</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1420c7e1-7637-4cb5-bf0f-bb759d94bfa6">
+<span class="eqno">(169)<a class="headerlink" href="#equation-1420c7e1-7637-4cb5-bf0f-bb759d94bfa6" title="Permalink to this equation">#</a></span>\[\begin{align}
+ L = m v_0 b\, .
+\end{align}\]</div>
+<p>Then, at some other (arbitrary) point <span class="math notranslate nohighlight">\(M\)</span>, according to equation <a class="reference internal" href="#equation-bgt3498yei">(168)</a> the angular momentum must be equal to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-00552850-0ffa-4867-bae9-26a00feae0a2">
+<span class="eqno">(170)<a class="headerlink" href="#equation-00552850-0ffa-4867-bae9-26a00feae0a2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ L = m r^2 \frac{\d\theta}{\d t}\, .
+\end{align}\]</div>
+<p>Conservation of angular momentum applies, since <span class="math notranslate nohighlight">\(F\)</span> is a central force, so</p>
+<div class="math notranslate nohighlight" id="equation-nbhgueorwijs">
+<span class="eqno">(171)<a class="headerlink" href="#equation-nbhgueorwijs" title="Link to this equation">#</a></span>\[ m r^2 \frac{\d\theta}{\d t} = m v_0 b\, .\]</div>
+<p>Next, we consider the vertical force</p>
+<div class="amsmath math notranslate nohighlight" id="equation-270373d3-bb78-4a31-be41-ceff5793fe3f">
+<span class="eqno">(172)<a class="headerlink" href="#equation-270373d3-bb78-4a31-be41-ceff5793fe3f" title="Permalink to this equation">#</a></span>\[\begin{align}
+  m \frac{\d v_y}{\d t} = F_y = F\sin\theta = \frac{k\sin\theta}{r^2}\, .
+\end{align}\]</div>
+<p>This allows us to eliminate <span class="math notranslate nohighlight">\(r^2\)</span> from equation <a class="reference internal" href="#equation-nbhgueorwijs">(171)</a>:</p>
+<div class="math notranslate nohighlight" id="equation-gbteh9yrhuifs">
+<span class="eqno">(176)<a class="headerlink" href="#equation-gbteh9yrhuifs" title="Link to this equation">#</a></span>\[  \frac{\d v_y}{\d t} = \frac{k\sin\theta}{mv_0 b} \frac{\d\theta}{\d t} \, .\]</div>
+<p>As the particle comes in from <span class="math notranslate nohighlight">\(t\to-\infty\)</span>, scatters, and whizzes off to <span class="math notranslate nohighlight">\(t\to+\infty\)</span>, it changes direction from a horizontal trajectory to an asymptotic trajectory at an angle <span class="math notranslate nohighlight">\(\phi\)</span>. We can therefore integrate both sides of equation <a class="reference internal" href="#equation-gbteh9yrhuifs">(176)</a> from the initial value of <span class="math notranslate nohighlight">\(v_y\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span> to their final values:</p>
+<div class="math notranslate nohighlight" id="equation-gbteh9yrhuifs">
+<span class="eqno">(176)<a class="headerlink" href="#equation-gbteh9yrhuifs" title="Link to this equation">#</a></span>\[  \int_0^{v_0\sin\phi} \d v_y = \frac{k}{mv_0 b} \int_0^{\pi-\phi}\sin\theta\,\d\theta\, .\]</div>
+<p>Note the limits of integration: as time runs from <span class="math notranslate nohighlight">\(-\infty\)</span> to <span class="math notranslate nohighlight">\(+\infty\)</span>, the vertical component of the velocity <span class="math notranslate nohighlight">\(v_y\)</span> goes from zero to <span class="math notranslate nohighlight">\(v_0\sin\phi\)</span>, and the angle <span class="math notranslate nohighlight">\(\theta\)</span> goes from zero to <span class="math notranslate nohighlight">\(\pi-\phi\)</span> (see Fig. 17). Solving these integrals is straightforward, and yields</p>
+<div class="math notranslate nohighlight" id="equation-gbteh9yrhuifs">
+<span class="eqno">(176)<a class="headerlink" href="#equation-gbteh9yrhuifs" title="Link to this equation">#</a></span>\[  v_0\sin\phi = \frac{k}{mv_0 b} (1+\cos\phi)\, .\]</div>
+<p>Extracting <span class="math notranslate nohighlight">\(\phi\)</span> from this is not entirely trivial, but can be done using the cotangens:</p>
+<div class="math notranslate nohighlight" id="equation-gbteh9yrhuifs">
+<span class="eqno">(176)<a class="headerlink" href="#equation-gbteh9yrhuifs" title="Link to this equation">#</a></span>\[  \cot\frac{\phi}{2} = \frac{mv_0^2 b}{k}\, .\]</div>
+<p>Hence the potential <span class="math notranslate nohighlight">\(V = k/r\)</span> predicts a very specific scattering angle for the various velocities <span class="math notranslate nohighlight">\(v_0\)</span> and scattering parameters <span class="math notranslate nohighlight">\(b\)</span>. A different potential, for example <span class="math notranslate nohighlight">\(V=k/r^n\)</span>, would have given rise to a different relationship between the scattering angle and <span class="math notranslate nohighlight">\(v_0\)</span> and <span class="math notranslate nohighlight">\(b\)</span>. This is why scattering experiments are used in particle physics to understand the inner workings of subatomic particles. It allowed Rutherford to deduce from his scattering experiments that the atom consists of a massive nucleus surrounded by light electrons.</p>
+<p>A note on energy conservation: We could not solve this problem using energy conservation, since the balance between kinetic and potential energy depends on the distance of the particle to the centre of the potential. Energy is still conserved, but here it did not give us all the information we needed. This underscores the importance of angular momentum.</p>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture7.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Polar coordinates and circular motion</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture9.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Rotating rigid bodies</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
