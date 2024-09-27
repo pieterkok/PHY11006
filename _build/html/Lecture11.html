@@ -1,0 +1,688 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Orbital mechanics &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture11';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="prev" title="Applications of angular momentum" href="Lecture10.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture11.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture11.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Orbital mechanics</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-first-law">Kepler’s First Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-third-law">Kepler’s Third Law</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="orbital-mechanics">
+<h1>Orbital mechanics<a class="headerlink" href="#orbital-mechanics" title="Link to this heading">#</a></h1>
+<p>We now arrive at the capstone of this lecture series: Kepler’s laws of planetary motion. They can be stated as follows:</p>
+<ol class="arabic simple">
+<li><p>Planets orbit the Sun in elliptical orbits.</p></li>
+<li><p>The planet sweeps out equal areas in equal time.</p></li>
+<li><p>The orbital period squared is proportional to the semi-major axis cubed.</p></li>
+</ol>
+<figure class="align-default" id="fig-gru4wojirf">
+<a class="reference internal image-reference" href="_images/Kepler1.png"><img alt="_images/Kepler1.png" src="_images/Kepler1.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 18 </span><span class="caption-text">A planet of mass <span class="math notranslate nohighlight">\(m\)</span> orbiting on an elliptical path around a larger mass <span class="math notranslate nohighlight">\(M\)</span>. The distance between the two masses changes throughout the orbit. The velocity of the small mass is resolved into two components, one pointing radially and the other perpendicular to this.</span><a class="headerlink" href="#fig-gru4wojirf" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We will prove these laws in turn, but first we need to explore the mathematics of ellipses in more detail. An elliptical orbit in cartesian coordinates is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-26a66a37-7df9-4b05-9de9-0559cddc1ff2">
+<span class="eqno">(200)<a class="headerlink" href="#equation-26a66a37-7df9-4b05-9de9-0559cddc1ff2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{x^2}{a^2} + \frac{y^2}{b^2} = 1\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(a\)</span> and <span class="math notranslate nohighlight">\(b\leq a\)</span> are the semi-major and semi-minor axes, respectively. It is convenient to define the eccentricity of the ellipse <span class="math notranslate nohighlight">\(e\)</span> as a measure of how the shape of the ellipse deviates from a circle:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a7714e02-87d2-4039-8daf-8c7e66c434e2">
+<span class="eqno">(201)<a class="headerlink" href="#equation-a7714e02-87d2-4039-8daf-8c7e66c434e2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ e = \sqrt{1-\frac{b^2}{a^2}} \qquad\text{with}\qquad 0\leq e \leq 1\, .
+\end{align}\]</div>
+<p>When <span class="math notranslate nohighlight">\(e=0\)</span> the ellipse is a circle (i.e., the deviation from a circle is zero), and when <span class="math notranslate nohighlight">\(e=1\)</span> the ellipse is a line segment.</p>
+<figure class="align-default" id="fig-dtfhghjyju">
+<a class="reference internal image-reference" href="_images/Ellipse.png"><img alt="_images/Ellipse.png" src="_images/Ellipse.png" style="width: 300px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 19 </span><span class="caption-text">The ellipse: Here, <span class="math notranslate nohighlight">\(c=\sqrt{a^2-b^2}\)</span>, such that <span class="math notranslate nohighlight">\(e = c/a\)</span>.</span><a class="headerlink" href="#fig-dtfhghjyju" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Since we are solving the problem of planetary motion in polar coordinates, we need to express the ellipse in terms of <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>. Using <span class="math notranslate nohighlight">\(x=r\cos\theta\)</span> and <span class="math notranslate nohighlight">\(y=r\sin\theta\)</span>, we find that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9a7e1778-a72b-45f2-95b1-c04d387b0b4d">
+<span class="eqno">(202)<a class="headerlink" href="#equation-9a7e1778-a72b-45f2-95b1-c04d387b0b4d" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r(\theta) = \frac{b^2/a}{1+e \cos\theta}\, .
+\end{align}\]</div>
+<p>The origin coincides with one of the foci (<span class="math notranslate nohighlight">\(F_1\)</span> or <span class="math notranslate nohighlight">\(F_2\)</span> in figure 18) of the ellipse.</p>
+<section id="kepler-s-first-law">
+<h2>Kepler’s First Law<a class="headerlink" href="#kepler-s-first-law" title="Link to this heading">#</a></h2>
+<p>For Kepler’s first law, we want to show that the orbit of a planet is an ellipse, namely</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9fd177c8-b84a-4b4c-a987-43a7b34ef2ed">
+<span class="eqno">(203)<a class="headerlink" href="#equation-9fd177c8-b84a-4b4c-a987-43a7b34ef2ed" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r(\theta) = \frac{b^2/a}{1+e \cos\theta}\, ,
+\end{align}\]</div>
+<p>for some values of <span class="math notranslate nohighlight">\(a\)</span>, <span class="math notranslate nohighlight">\(b\)</span>, and <span class="math notranslate nohighlight">\(e\)</span> that we need to determine. We start with the energy in equation <a class="reference internal" href="Lecture10.html#equation-kwproeiguthieojrd">(199)</a> and determine the force in the radial direction from the potential <span class="math notranslate nohighlight">\(V_{\rm eff}\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-37ed50a3-42fa-4f6a-8201-3736c284f166">
+<span class="eqno">(204)<a class="headerlink" href="#equation-37ed50a3-42fa-4f6a-8201-3736c284f166" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F = m \ddot{r} = - \frac{\d V_{\rm eff}}{\d r} = \frac{L^2}{mr^3} - \frac{GmM}{r^2}\, .
+\end{align}\]</div>
+<p>We can divide by <span class="math notranslate nohighlight">\(m\)</span> and reintroduce <span class="math notranslate nohighlight">\(\dot{\theta} = L/mr^2\)</span> to obtain</p>
+<div class="math notranslate nohighlight" id="equation-jro4iwjoersfd">
+<span class="eqno">(205)<a class="headerlink" href="#equation-jro4iwjoersfd" title="Link to this equation">#</a></span>\[ \ddot{r} = r \dot{\theta}^2 - \frac{GM}{r^2}\, .\]</div>
+<p>This is not a differential equation we can easily solve, but fortunately we can cast it in a much more amenable form. If we make the substitution <span class="math notranslate nohighlight">\(\rho = 1/r\)</span>, we can write</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a63b69a1-f67b-4f92-b28d-88ce04983c48">
+<span class="eqno">(206)<a class="headerlink" href="#equation-a63b69a1-f67b-4f92-b28d-88ce04983c48" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d\rho}{\d\theta} = \frac{\d}{\d\theta}\frac{1}{r} = -\frac{1}{r^2} \frac{\d r}{\d\theta} = -\frac{1}{r^2} \dot{r} \frac{\d t}{\d\theta} = -\frac{m\dot{r}}{L}\, .
+\end{align}\]</div>
+<p>However, equation <a class="reference internal" href="#equation-jro4iwjoersfd">(205)</a> requires the second time derivative <span class="math notranslate nohighlight">\(\ddot{r}\)</span>. We can get this via a circuitous way, namely from the second derivative of <span class="math notranslate nohighlight">\(\rho\)</span> with respect to <span class="math notranslate nohighlight">\(\theta\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-fb83ad15-96fb-44e1-85ec-a0e60b29345c">
+<span class="eqno">(207)<a class="headerlink" href="#equation-fb83ad15-96fb-44e1-85ec-a0e60b29345c" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d^2\rho}{\d\theta^2} = -\frac{\d}{\d\theta}\frac{m\dot{r}}{L} = -\frac{m}{L} \frac{\d \dot{r}}{\d\theta} = -\frac{m}{L} \ddot{r} \frac{\d t}{\d\theta} = -\frac{m^2 r^2}{L^2} \ddot{r}\, .
+\end{align}\]</div>
+<p>We can solve for <span class="math notranslate nohighlight">\(\ddot{r}\)</span> and substitute this into equation <a class="reference internal" href="#equation-jro4iwjoersfd">(205)</a>. This leads to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-acca92a4-c58b-4cda-96fe-42bc36620c13">
+<span class="eqno">(208)<a class="headerlink" href="#equation-acca92a4-c58b-4cda-96fe-42bc36620c13" title="Permalink to this equation">#</a></span>\[\begin{align}
+ -\frac{L^2 \rho^2}{m^2} \frac{\d^2\rho}{\d\theta^2} = \frac{L^2 \rho^3}{m^2} - GM\rho^2\, .
+\end{align}\]</div>
+<p>Dividing this equation by <span class="math notranslate nohighlight">\(\rho^2 L^2/m^2\)</span>, we obtain the differential equation:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-101aa660-e875-4511-93e4-934be98f815e">
+<span class="eqno">(209)<a class="headerlink" href="#equation-101aa660-e875-4511-93e4-934be98f815e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d^2\rho}{\d\theta^2} + \rho - \frac{GMm^2}{L^2} = 0\, ,
+\end{align}\]</div>
+<p>This is mathematically identical to the differential equation for a harmonic oscillator, whose solutions can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-4b83a12b-1c1b-401f-8dc3-0d151ab40891">
+<span class="eqno">(210)<a class="headerlink" href="#equation-4b83a12b-1c1b-401f-8dc3-0d151ab40891" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \rho(\theta) = \frac{GMm^2}{L^2} + B \cos(\theta+\phi_0)\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(B\)</span> is the `amplitude’ of the solution, and we can set <span class="math notranslate nohighlight">\(\phi_0 = 0\)</span> as our initial condition. Solving for <span class="math notranslate nohighlight">\(r(\theta) = 1/\rho(\theta)\)</span>, we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2f5f3921-fc0e-4370-ae78-e3c59897f773">
+<span class="eqno">(211)<a class="headerlink" href="#equation-2f5f3921-fc0e-4370-ae78-e3c59897f773" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r(\theta) = \frac{L^2/Gm^2M}{1+L^2 B/Gm^2M \cos\theta}\, .
+\end{align}\]</div>
+<p>This is an elliptical orbit with</p>
+<div class="math notranslate nohighlight" id="equation-geh340ueoirjffs">
+<span class="eqno">(212)<a class="headerlink" href="#equation-geh340ueoirjffs" title="Link to this equation">#</a></span>\[ e = \frac{L^2 B}{Gm^2M} 
+ \qquad\text{and}\qquad
+ \frac{b^2}{a} = \frac{L^2}{Gm^2M}\, .\]</div>
+<p>This proves Kepler’s first law. The eccentricity becomes zero for <span class="math notranslate nohighlight">\(B=0\)</span>, or where <span class="math notranslate nohighlight">\(\rho\)</span> is a constant for all angles <span class="math notranslate nohighlight">\(\theta\)</span>.</p>
+</section>
+<section id="kepler-s-second-law">
+<h2>Kepler’s Second Law<a class="headerlink" href="#kepler-s-second-law" title="Link to this heading">#</a></h2>
+<p>From the conservation of angular momentum and equation <a class="reference internal" href="Lecture8.html#equation-bgt3498yei">(168)</a> we know that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-9b3f4a70-7487-4977-ae50-779b9182e56b">
+<span class="eqno">(213)<a class="headerlink" href="#equation-9b3f4a70-7487-4977-ae50-779b9182e56b" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r^2 \dot{\theta} = \frac{L}{m} = \text{constant.}
+\end{align}\]</div>
+<p>However, <span class="math notranslate nohighlight">\(r^2 \dot{\theta}\)</span> has a clear geometric meaning, as shown in Fig. 19. The shaded area is a triangle when <span class="math notranslate nohighlight">\(r\d\theta\)</span> is infinitesimally small, and the area of this triangle is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-def081bd-aca1-45af-a490-9b469c7f0138">
+<span class="eqno">(214)<a class="headerlink" href="#equation-def081bd-aca1-45af-a490-9b469c7f0138" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \d A = \frac12 r\, r \d\theta = \frac12 r^2\d\theta\, .
+\end{align}\]</div>
+<p>Therefore,</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e0f27756-ad39-4401-8b97-e5fc437106a1">
+<span class="eqno">(215)<a class="headerlink" href="#equation-e0f27756-ad39-4401-8b97-e5fc437106a1" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \frac{\d A}{\d t} = \frac12 r^2 \dot{\theta} = \text{constant.}
+\end{align}\]</div>
+<p>In other words, the rate of the area <span class="math notranslate nohighlight">\(A\)</span> swept out by the line connecting the planet and the origin is constant over time, and this is precisely Kepler’s second law. You see that it is an expression of the conservation of angular momentum.</p>
+<figure class="align-default" id="fig-vgiuhrewoijsfdd">
+<a class="reference internal image-reference" href="_images/kepler2.png"><img alt="_images/kepler2.png" src="_images/kepler2.png" style="width: 250px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 20 </span><span class="caption-text">The area of the shaded triangle is <span class="math notranslate nohighlight">\(\simeq\frac12 r\, r \d\theta\)</span>.</span><a class="headerlink" href="#fig-vgiuhrewoijsfdd" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+</section>
+<section id="kepler-s-third-law">
+<h2>Kepler’s Third Law<a class="headerlink" href="#kepler-s-third-law" title="Link to this heading">#</a></h2>
+<p>The area of an ellipse is <span class="math notranslate nohighlight">\(\pi ab\)</span>, and the rate of sweeping out area in elliptical orbits is a constant <span class="math notranslate nohighlight">\(L/2m\)</span>. The time <span class="math notranslate nohighlight">\(T\)</span> to complete an orbit is equal to the area divided by the rate of area swept. In other words,</p>
+<div class="math notranslate nohighlight" id="equation-blkgjnhtu4rertiudr">
+<span class="eqno">(216)<a class="headerlink" href="#equation-blkgjnhtu4rertiudr" title="Link to this equation">#</a></span>\[ T = \dfrac{\pi ab}{{L/2m}}= \dfrac{2m\pi ab}{L}\, .\]</div>
+<p>We now need to relate <span class="math notranslate nohighlight">\(T\)</span> to the semi-major axis <span class="math notranslate nohighlight">\(a\)</span>. This is quite straightforward if we extract <span class="math notranslate nohighlight">\(b\)</span> from equation <a class="reference internal" href="#equation-geh340ueoirjffs">(212)</a> and use it to eliminate <span class="math notranslate nohighlight">\(b\)</span> from  equation <a class="reference internal" href="#equation-blkgjnhtu4rertiudr">(216)</a>.</p>
+<p>From equations <a class="reference internal" href="#equation-geh340ueoirjffs">(212)</a> and <a class="reference internal" href="#equation-blkgjnhtu4rertiudr">(216)</a> we see that <span class="math notranslate nohighlight">\(b^2\)</span> is equal to</p>
+<div class="amsmath math notranslate nohighlight" id="equation-660e3ab3-3010-44ce-a8b8-18d1e00d048a">
+<span class="eqno">(217)<a class="headerlink" href="#equation-660e3ab3-3010-44ce-a8b8-18d1e00d048a" title="Permalink to this equation">#</a></span>\[\begin{align}
+ b^2 = \frac{a L^2}{Gm^2M} = \frac{T^2 L^2}{4m^2\pi^2a^2}\, .
+\end{align}\]</div>
+<p>Hence</p>
+<div class="amsmath math notranslate nohighlight" id="equation-7b51286e-1f7f-4186-8234-090d69348e17">
+<span class="eqno">(218)<a class="headerlink" href="#equation-7b51286e-1f7f-4186-8234-090d69348e17" title="Permalink to this equation">#</a></span>\[\begin{align}
+\frac{a L^2}{Gm^2M} = \frac{T^2 L^2}{4m^2\pi^2a^2}
+\qquad\text{or}\qquad
+\frac{T^2}{a^3} = \frac{4\pi^2}{GM} = \text{constant}\, .
+\end{align}\]</div>
+<p>This proves Kepler’s third law.</p>
+<hr class="docutils" />
+<p>The derivation of Kepler’s laws was a triumph for Newtonian mechanics. It demonstrated that the inverse-square law of gravity was capable of reproducing Kepler’s experimentally well-established laws from simple principles (Newton’s three laws), even though the <em>application</em> of Newton’s laws is not necessarily all that straightforward. The conservation of energy and angular momentum played a central role in understanding where Kepler’s laws come from.</p>
+<p>Mechanics is a very mathematical subject that requires familiarity with derivatives and integrals, vectors, and non-cartesian coordinate systems. However, mechanics lies at the heart of all classical physics, and these techniques are a prerequisite for understanding a wide range of topics further in your studies.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture10.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Applications of angular momentum</p>
+      </div>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-first-law">Kepler’s First Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-second-law">Kepler’s Second Law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kepler-s-third-law">Kepler’s Third Law</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

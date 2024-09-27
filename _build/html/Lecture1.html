@@ -1,0 +1,665 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Lecture 1: Where do forces come from? &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture1';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Lecture 2: Newton’s second law" href="Lecture2.html" />
+    <link rel="prev" title="PHY11006 Mechanics" href="Mechanics.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture1.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture1.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Lecture 1: Where do forces come from?</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-gravitational-acceleration">Uniform gravitational acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hooke-s-law">Hooke’s law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-law-of-gravity">Newton’s law of gravity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrostatic-force-between-two-charges">Electrostatic force between two charges</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{\small{e}}}_{#1}}\)</span></p>
+<section id="lecture-1-where-do-forces-come-from">
+<h1>Lecture 1: Where do forces come from?<a class="headerlink" href="#lecture-1-where-do-forces-come-from" title="Link to this heading">#</a></h1>
+<p>What is mechanics? It’s not just about projectile motion and pulleys, although there is plenty of that. Mechanics is a way of understanding the behaviour of physical systems. Anything that produces a force can be analysed using mechanics, and that includes gravity, electric and magnetic forces, and even many-body systems like gasses. Only with the development of quantum mechanics did physics truly depart from the framework for understanding Nature that mechanics provided. Relativity, and electric and magnetic fields, can and have all been incorporated into a classical mechanical description.</p>
+<p>Mechanics was first cast in the language of forces by Newton in the 1680s, and that was a radical concept at the time, even mystical to some. It was subsequently developed by many others. Laplace introduced differential equations into mechanics in the 1770s, and Hamilton applied the concept of energy to mechanics in the 1820s, developing the language of mechanics as we use it today. Lagrange and Euler developed the calculus of variations for mechanics in the 1750s, which is used equally often in modern physics as an alternative formulation to Hamilton’s.</p>
+<p>So what is mechanics? It is a mathematical framework describing the motion of physical systems. It relates the positions and velocities of objects to forces and potentials, and tells us how to calculate how systems behave. It would not be a stretch to claim that the entirety of classical physics falls under the umbrella of mechanics, even though areas like optics and electromagnetism do not simply reduce to the positions and velocities of particles. In this course, we will consider a slightly more modest scope of mechanics as a discipline. We will treat only one, or a few objects at a time, excluding many-body physics. We will not talk about fields, but leave that for second semester. Instead, we bring together the mathematical tools that underpin mechanics.</p>
+<p>In this course we will develop the following concepts:</p>
+<ol class="arabic simple">
+<li><p>Position, velocity and acceleration as mathematical functions of time,</p></li>
+<li><p>forces as vectors and Newton’s laws of motion,</p></li>
+<li><p>the relation between force, potential, and work,
+Most of the course is about developing these techniques, but in the second half we consider the special case of rotating and orbiting bodies. They are incredibly common in physics, and require new concepts such as angular momentum and the moment of inertia. We conclude with the application that started it all for Newton, namely orbital mechanics and the demonstration that Kepler’s laws follow from his inverse-square law of gravity and his three laws of motion.</p></li>
+</ol>
+<hr class="docutils" />
+<p>First, we will ask a simple question: where do forces come from? Let’s consider some simple examples that you are already familiar with.</p>
+<section id="uniform-gravitational-acceleration">
+<h2>Uniform gravitational acceleration<a class="headerlink" href="#uniform-gravitational-acceleration" title="Link to this heading">#</a></h2>
+<p>When I drop a ball from a (modest) height <span class="math notranslate nohighlight">\(h\)</span>, it experiences a force that is directed towards the ground, <span class="math notranslate nohighlight">\(F = mg\)</span>, with <span class="math notranslate nohighlight">\(m\)</span> the mass of the ball and <span class="math notranslate nohighlight">\(g=9.81\mss\)</span> the gravitational acceleration. The ball started out at rest, and accelerates towards the ground. What makes the ball `want’ to leave the higher position and move towards the lower position? One answer is that the Earth attracts the ball.</p>
+<p>Another, more fruitful answer is that the ball starts out in a position with high potential energy, and it moves towards a position with low potential energy. The force on the ball is in the direction of decreasing potential energy. When we choose the zero point of the potential energy at ground level, the potential energy at height <span class="math notranslate nohighlight">\(h\)</span> is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-09f2482a-18a3-4fe1-8bee-da195f0e02f8">
+<span class="eqno">(1)<a class="headerlink" href="#equation-09f2482a-18a3-4fe1-8bee-da195f0e02f8" title="Permalink to this equation">#</a></span>\[\begin{equation}
+ V_{\rm gr} = mgh\, .
+\end{equation}\]</div>
+<p>The force <span class="math notranslate nohighlight">\(F=mg\)</span> is in the direction in which the potential energy <em>decreases</em>.</p>
+<figure class="align-default" id="fig-oit67etufhjgdh">
+<img alt="_images/drop-roll.png" src="_images/drop-roll.png" />
+<figcaption>
+<p><span class="caption-number">Fig. 1 </span><span class="caption-text">Left: dropping an object from a height <span class="math notranslate nohighlight">\(h\)</span> to the ground. Right: letting a ball roll from the same height down a ramp.</span><a class="headerlink" href="#fig-oit67etufhjgdh" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>Next, imagine we let the ball roll down a ramp (see Fig. 1). If the ramp is very shallow, the force on the ball is quite a bit weaker than when we let it drop straight down. As a result, the ball won’t pick up speed as fast as when we let it drop straight down. The force is proportional to the <em>change</em> in the potential energy.</p>
+</section>
+<section id="hooke-s-law">
+<h2>Hooke’s law<a class="headerlink" href="#hooke-s-law" title="Link to this heading">#</a></h2>
+<p>Imagine a spring with a block of mass <span class="math notranslate nohighlight">\(m\)</span> attached to the end. We arrange it horizontally, where the block can slide without friction on a surface. This way we can ignore the role of gravity. The other end of the spring is secured to a fixed point. There is an equilibrium position <span class="math notranslate nohighlight">\(x=0\)</span>, where the block is placed such that the spring is neither compressed nor extended. We need to apply a force to move the block, because it will compress or extend the spring. The direction of the compressing/extending force is always <em>away</em> from the equilibrium position <span class="math notranslate nohighlight">\(x=0\)</span>. Similarly, from Newton’s third law, the spring exerts a force on the block that is always <em>towards</em> <span class="math notranslate nohighlight">\(x=0\)</span>. It is called a <em>restoring</em> force, and because it always points towards <span class="math notranslate nohighlight">\(x=0\)</span>, it has a different sign when it is compressing then when it is extending. Moreover, the further the spring is extended, the stronger the restoring force <span class="math notranslate nohighlight">\(F\)</span> on the block:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f81816da-d7ce-4034-ae0d-86639affed30">
+<span class="eqno">(2)<a class="headerlink" href="#equation-f81816da-d7ce-4034-ae0d-86639affed30" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F= - k x\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(k\)</span> is the spring constant. This is of course Hooke’s law. The minus sign is very important. It makes the force on the block a restoring force.</p>
+<figure class="align-default" id="fig-lgnjheuwjoerdfrr">
+<a class="reference internal image-reference" href="_images/spring.png"><img alt="_images/spring.png" src="_images/spring.png" style="height: 200px;" /></a>
+<figcaption>
+<p><span class="caption-number">Fig. 2 </span><span class="caption-text">A black of mass m attached to a spring with spring constant <span class="math notranslate nohighlight">\(k\)</span>. The spring is in the equilibrium position in the top figure, with the block position <span class="math notranslate nohighlight">\(x=0\)</span>.</span><a class="headerlink" href="#fig-lgnjheuwjoerdfrr" title="Link to this image">#</a></p>
+</figcaption>
+</figure>
+<p>We can also understand this force as a result of a potential. When we compress or extend the spring by an amount <span class="math notranslate nohighlight">\(x\)</span>, the potential energy of the system is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-31af0b68-adf9-47fa-9ab0-1bc75154ce37">
+<span class="eqno">(3)<a class="headerlink" href="#equation-31af0b68-adf9-47fa-9ab0-1bc75154ce37" title="Permalink to this equation">#</a></span>\[\begin{align}
+ V_{\rm spring} = \frac12 k x^2\, .
+\end{align}\]</div>
+<p>It does not matter whether we compress the spring or extend it, the potential energy will be the same, since <span class="math notranslate nohighlight">\((-x)^2 = x^2\)</span>. The restoring force on the block is in the direction for which the potential decreases, i.e., in the direction of <span class="math notranslate nohighlight">\(x=0\)</span>. So again, the force is given by the <em>change</em> in potential with the distance <span class="math notranslate nohighlight">\(x\)</span>. This is given by a derivative of the potential with respect to <span class="math notranslate nohighlight">\(x\)</span>. Since the force is in the direction of decreasing potential, it has to be the negative derivative:</p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-eq-ghureo940woijerfd">
+<span class="eqno">(4)<a class="headerlink" href="#equation-eq-ghureo940woijerfd" title="Link to this equation">#</a></span>\[F(x) = - \frac{\d V}{\d x}\, .\]</div>
+</div></blockquote>
+<p>When we substitute the potential <span class="math notranslate nohighlight">\(V_{\rm spring}\)</span>, you see that we recover <span class="math notranslate nohighlight">\(F=-kx\)</span>. Note that all the signs for <span class="math notranslate nohighlight">\(F\)</span> are correct, both for positive and negative <span class="math notranslate nohighlight">\(x\)</span>.</p>
+<p>Note that we can add a constant <span class="math notranslate nohighlight">\(V_0\)</span> to the potential, and it will not contribute to the force, since the derivative of a constant is zero. This means that we can pick the zero point of our potential wherever we want, without observable consequences for the force. We already used this in the first example, when we chose <span class="math notranslate nohighlight">\(V=0\)</span> at ground level. We tend to pick the zero point of <span class="math notranslate nohighlight">\(V\)</span> in such a way that it makes our analysis simplest.</p>
+</section>
+<section id="newton-s-law-of-gravity">
+<h2>Newton’s law of gravity<a class="headerlink" href="#newton-s-law-of-gravity" title="Link to this heading">#</a></h2>
+<p>Newton’s famous insight was that the force that pulls apples to Earth is the same that makes the moon orbit the Earth. The constant gravitational acceleration <span class="math notranslate nohighlight">\(g\)</span> is only an approximation for when the drop height <span class="math notranslate nohighlight">\(h\)</span> is small compared to the radius of the Earth. The force on a mass <span class="math notranslate nohighlight">\(m\)</span> due to another mass <span class="math notranslate nohighlight">\(M\)</span> obeys Newton’s inverse-square law of gravity:</p>
+<div class="math notranslate nohighlight" id="equation-njgewhiresjkh">
+<span class="eqno">(5)<a class="headerlink" href="#equation-njgewhiresjkh" title="Link to this equation">#</a></span>\[ F = -\frac{GmM}{r^2}\, ,\]</div>
+<p>where <span class="math notranslate nohighlight">\(G= 6.67408 \times 10^{-11}~{\rm m}^3\; {\rm kg}^{-1}\; {\rm s}^{-2}\)</span> is Newton’s constant of gravitation. We included a minus sign, because the force of gravity is attractive. The force lies in the direction along the axis that connects the two masses.</p>
+<p>We can also cast this problem in terms of potential energy. The closer that  the mass <span class="math notranslate nohighlight">\(m\)</span> is to mass <span class="math notranslate nohighlight">\(M\)</span>, the lower its potential energy. We define <span class="math notranslate nohighlight">\(V=0\)</span> for the situation where the two masses are infinitely far apart, and we can write the potential as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-d4fd4b9d-0f8f-4a3a-a9a7-b36b55e94cc2">
+<span class="eqno">(6)<a class="headerlink" href="#equation-d4fd4b9d-0f8f-4a3a-a9a7-b36b55e94cc2" title="Permalink to this equation">#</a></span>\[\begin{align}
+ V_{\rm gravity} = -\frac{GmM}{r}\, .
+\end{align}\]</div>
+<p>The direction in which the potential changes is <span class="math notranslate nohighlight">\(r\)</span>. So if we want to find the force, we need to take the derivative in the <span class="math notranslate nohighlight">\(r\)</span> direction:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dbc6cb9e-d601-4b10-9527-e54090521fe0">
+<span class="eqno">(7)<a class="headerlink" href="#equation-dbc6cb9e-d601-4b10-9527-e54090521fe0" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r) = - \frac{\d V_{\rm gravity}}{\d r} = -\frac{GmM}{r^2}\, ,
+\end{align}\]</div>
+<p>which agrees with equation  <a class="reference internal" href="#equation-njgewhiresjkh">(5)</a>. Note that we take the derivative with respect to <span class="math notranslate nohighlight">\(r\)</span>, not <span class="math notranslate nohighlight">\(x\)</span>. In general we will have to be careful about the direction in which the potential has its steepest descent, because that is where the force will be directed. The steepest descent is exactly the direction a ball will roll on a map with uneven elevation (for example rolling down a hill).</p>
+</section>
+<section id="electrostatic-force-between-two-charges">
+<h2>Electrostatic force between two charges<a class="headerlink" href="#electrostatic-force-between-two-charges" title="Link to this heading">#</a></h2>
+<p>As a final example of forces between objects, consider two charges, <span class="math notranslate nohighlight">\(q_1\)</span> and <span class="math notranslate nohighlight">\(q_2\)</span> a distance <span class="math notranslate nohighlight">\(d\)</span> apart. The force on charge <span class="math notranslate nohighlight">\(q_1\)</span> due to charge <span class="math notranslate nohighlight">\(q_2\)</span> is given by</p>
+<div class="amsmath math notranslate nohighlight" id="equation-e61f3324-c877-429c-94fb-26c540af8e44">
+<span class="eqno">(8)<a class="headerlink" href="#equation-e61f3324-c877-429c-94fb-26c540af8e44" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F_{\rm electric} = \frac{q_1 q_2}{4\pi\epsilon_0 d^2}\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\epsilon_0\)</span> is the permittivity of free space. Even though we wrote a distance <span class="math notranslate nohighlight">\(d\)</span>, this is essentially again an inverse-square law, and it makes sense to use the coordinate <span class="math notranslate nohighlight">\(r\)</span> instead of <span class="math notranslate nohighlight">\(d\)</span>. The force is again directed along the axis connecting the two charges, and to a large degree the connection with the electric potential energy is very similar to that of the two masses in Newton’s law of gravity:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-b7f24906-12b2-41e6-9276-b808b4971dcd">
+<span class="eqno">(9)<a class="headerlink" href="#equation-b7f24906-12b2-41e6-9276-b808b4971dcd" title="Permalink to this equation">#</a></span>\[\begin{align}
+ V_{\rm electric} = \frac{q_1 q_2}{4\pi\epsilon_0 r}\, .
+\end{align}\]</div>
+<p>The one notable difference is the lack of the minus sign. In gravity, all the masses are positive numbers, whereas charges can be both positive and negative. This potential says that when two charges have different signs, the overall potential is negative and they attract each other. When the charges have equal sign the potential is positive and the charges repel. You can verify that we obtain the correct electrostatic force when we take the negative derivative with respect to <span class="math notranslate nohighlight">\(r\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c42638fd-58e5-451a-98c6-55e2819a3366">
+<span class="eqno">(10)<a class="headerlink" href="#equation-c42638fd-58e5-451a-98c6-55e2819a3366" title="Permalink to this equation">#</a></span>\[\begin{align}
+ F(r) = - \frac{\d V_{\rm electric}}{\d r} \, .
+\end{align}\]</div>
+<p>Again, the force is in the direction of the steepest descent.</p>
+<hr class="docutils" />
+<p>There are a number of things to note here:</p>
+<ol class="arabic simple">
+<li><p>The force is in the direction of the steepest descent, and therefore force is a vector while the potential is a scalar. We have not shown this systematically in our equations so far, but it is important to keep in mind that we deal with vectors.</p></li>
+<li><p>The sign of the force is important; this is just the one-dimensional aspect of the fact that a force is a vector. Don’t ignore it!</p></li>
+<li><p>Not all forces can be written as derivatives of a potential, most notably friction forces don’t have a potential, and magnetic forces have a much more complicated potential that we will not discuss here. These forces are still important, but we will have to deal with them in other ways.</p></li>
+</ol>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Mechanics.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">PHY11006 Mechanics</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture2.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Lecture 2: Newton’s second law</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#uniform-gravitational-acceleration">Uniform gravitational acceleration</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#hooke-s-law">Hooke’s law</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#newton-s-law-of-gravity">Newton’s law of gravity</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#electrostatic-force-between-two-charges">Electrostatic force between two charges</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

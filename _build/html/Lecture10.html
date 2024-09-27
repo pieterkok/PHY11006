@@ -1,0 +1,662 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Applications of angular momentum &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture10';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Orbital mechanics" href="Lecture11.html" />
+    <link rel="prev" title="Rotating rigid bodies" href="Lecture9.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture9.html">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture10.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture10.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Applications of angular momentum</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy-and-rolling-motion">Kinetic energy and rolling motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scattering-problems">Scattering problems</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="applications-of-angular-momentum">
+<h1>Applications of angular momentum<a class="headerlink" href="#applications-of-angular-momentum" title="Link to this heading">#</a></h1>
+<section id="kinetic-energy-and-rolling-motion">
+<h2>Kinetic energy and rolling motion<a class="headerlink" href="#kinetic-energy-and-rolling-motion" title="Link to this heading">#</a></h2>
+<p>The kinetic energy <span class="math notranslate nohighlight">\(T\)</span> in a rotating rigid body of mass <span class="math notranslate nohighlight">\(M\)</span> and moment of inertia <span class="math notranslate nohighlight">\(I\)</span> can easily be determined by establishing the kinetic energy of its constituent parts:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-469f9d91-dbf4-4bde-8ae6-2061f788e2bf">
+<span class="eqno">(189)<a class="headerlink" href="#equation-469f9d91-dbf4-4bde-8ae6-2061f788e2bf" title="Permalink to this equation">#</a></span>\[\begin{align}
+ T_{\rm rot} = \sum_j \frac12 m_j v_j^2 = \frac12 \left( \sum_j  m_j r_j^2 \right) \omega^2\ = \frac12 I \omega^2\, ,
+\end{align}\]</div>
+<p>where we again used that <span class="math notranslate nohighlight">\(\omega\)</span> is the same for all elements in a rigid body. This kinetic energy is purely due to the rotation around an axis. In addition, we can set the rigid body in linear motion, where the centre of mass has velocity <span class="math notranslate nohighlight">\(\v\)</span>. This leads to a translational kinetic energy</p>
+<div class="amsmath math notranslate nohighlight" id="equation-882ff84f-51b7-4ac1-88d2-0446737489bc">
+<span class="eqno">(190)<a class="headerlink" href="#equation-882ff84f-51b7-4ac1-88d2-0446737489bc" title="Permalink to this equation">#</a></span>\[\begin{align}
+ T_{\rm trans} = \frac12 M v^2\, .
+\end{align}\]</div>
+<p>The total kinetic energy is the sum of these:</p>
+<div class="math notranslate nohighlight" id="equation-kvgdfjnkhtiuer5hf">
+<span class="eqno">(191)<a class="headerlink" href="#equation-kvgdfjnkhtiuer5hf" title="Link to this equation">#</a></span>\[ T = T_{\rm trans} + T_{\rm rot} = \frac12 M v^2 + \frac12 I\omega^2\, .\]</div>
+<p>This becomes important when we want to analyse rolling motion, for example when a cylinder rolls down a ramp. Previously, we considered frictionless sliding blocks that convert their potential energy entirely into kinetic energy: <span class="math notranslate nohighlight">\(mgh = \frac12 m v^2\)</span>, so the final velocity of the block is <span class="math notranslate nohighlight">\(v = \sqrt{2gh}\)</span>. However, now we can consider the effect of the energy going into the rotational motion of the cylinder. We assume the no-slipping condition, which says that the friction between the ramp and the cylinder is large enough so that the cylinder rolls and does not slide. This gives us a relation between the angular speed of the rotation and the translational speed:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-2a84af53-571a-421a-918b-29046a53fc4c">
+<span class="eqno">(192)<a class="headerlink" href="#equation-2a84af53-571a-421a-918b-29046a53fc4c" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v = R\omega\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(R\)</span> is the radius of the cylinder. Substituting this into equation <a class="reference internal" href="#equation-kvgdfjnkhtiuer5hf">(191)</a> and equating <span class="math notranslate nohighlight">\(T=Mgh\)</span>, we obtain</p>
+<div class="amsmath math notranslate nohighlight" id="equation-dad36fdf-30c4-4e97-a7ef-585bfe5af58f">
+<span class="eqno">(193)<a class="headerlink" href="#equation-dad36fdf-30c4-4e97-a7ef-585bfe5af58f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ Mgh = \frac12 M v^2 + \frac12 \frac{I}{R^2} v^2 = \frac12 \left(M + \frac{I}{R^2} \right) v^2\, .
+\end{align}\]</div>
+<p>Solving for <span class="math notranslate nohighlight">\(v\)</span>, we find</p>
+<div class="amsmath math notranslate nohighlight" id="equation-f11c8565-b6a6-4a5b-859d-53a2337e1490">
+<span class="eqno">(194)<a class="headerlink" href="#equation-f11c8565-b6a6-4a5b-859d-53a2337e1490" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v = \sqrt{\frac{2Mgh}{M + I/R^2}}\, .
+\end{align}\]</div>
+<p>This is smaller than the sliding block case, and reduces to it when <span class="math notranslate nohighlight">\(I\to0\)</span>. Note that this is true for cylinders with any mass distribution, not just the uniformly solid cylinder and the open tube. We can even consider spherical objects or egg-shaped rigid bodies. As long as it can obey the no-slipping condition this formula holds. For example, you can do rolling experiments with raw and hard-boiled eggs. Would you expect a difference in the final centre of mass velocity?</p>
+<hr class="docutils" />
+<p>Here is a useful thing to remember. For every quantity pertaining to linear motion, there is a corresponding quantity for rotational motion. This is captured in the table below:</p>
+<div class="pst-scrollable-table-container"><table class="table">
+<thead>
+<tr class="row-odd"><th class="head"><p></p></th>
+<th class="head"><p>linear</p></th>
+<th class="head"><p>circular</p></th>
+</tr>
+</thead>
+<tbody>
+<tr class="row-even"><td><p>position</p></td>
+<td><p><span class="math notranslate nohighlight">\(\r\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{\theta}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>velocity</p></td>
+<td><p><span class="math notranslate nohighlight">\(\v = \dot{\r}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{\omega} = \dot{\vec{\theta}}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>acceleration</p></td>
+<td><p><span class="math notranslate nohighlight">\(\a = \dot{\v}= \ddot{\r}\qquad\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{\alpha} = \dot{\vec{\omega}} = \ddot{\vec{\theta}}\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>mass</p></td>
+<td><p><span class="math notranslate nohighlight">\(m\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(I = mr^2\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>momentum</p></td>
+<td><p><span class="math notranslate nohighlight">\(\p\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\L = \r\times\p\)</span></p></td>
+</tr>
+<tr class="row-odd"><td><p>force</p></td>
+<td><p><span class="math notranslate nohighlight">\(\F = \dot{\p}\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\vec{\tau}=\r\times\F = \dot{\L}\)</span></p></td>
+</tr>
+<tr class="row-even"><td><p>kinetic energy</p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac12 mv^2\)</span></p></td>
+<td><p><span class="math notranslate nohighlight">\(\frac12 I \omega^2\)</span></p></td>
+</tr>
+</tbody>
+</table>
+</div>
+</section>
+<section id="scattering-problems">
+<h2>Scattering problems<a class="headerlink" href="#scattering-problems" title="Link to this heading">#</a></h2>
+<p>Let’s consider the role of angular momentum in the energy of a planet orbiting a star. The total energy for a planet with mass <span class="math notranslate nohighlight">\(m\)</span> in the gravitational potential of a star with mass <span class="math notranslate nohighlight">\(M\)</span> can be written as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-8adf8abf-9125-4b9a-a844-2e1c499d6835">
+<span class="eqno">(195)<a class="headerlink" href="#equation-8adf8abf-9125-4b9a-a844-2e1c499d6835" title="Permalink to this equation">#</a></span>\[\begin{align}
+ E = \frac12 m v^2 + V(r)\, .
+\end{align}\]</div>
+<p>We will keep <span class="math notranslate nohighlight">\(V(r)\)</span> for now to keep the notation simple and clear. We will also use polar coordinates, <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>, in which <span class="math notranslate nohighlight">\(v^2\)</span> becomes</p>
+<div class="amsmath math notranslate nohighlight" id="equation-29e72c0a-cea4-4fdb-bef9-72318fbc476f">
+<span class="eqno">(196)<a class="headerlink" href="#equation-29e72c0a-cea4-4fdb-bef9-72318fbc476f" title="Permalink to this equation">#</a></span>\[\begin{align}
+ v^2 = v_r^2 + v_\theta^2 = \left(\frac{\d r}{\d t}\right)^2 + r^2\left(\frac{\d \theta}{\d t}\right)^2 \, .
+\end{align}\]</div>
+<p>From equation <a class="reference internal" href="Lecture8.html#equation-bgt3498yei">(168)</a> we deduce that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a465eeb7-e4f6-4481-a0d5-139a4b350b17">
+<span class="eqno">(197)<a class="headerlink" href="#equation-a465eeb7-e4f6-4481-a0d5-139a4b350b17" title="Permalink to this equation">#</a></span>\[\begin{align}
+ r^2\left(\frac{\d \theta}{\d t}\right)^2 = \frac{L^2}{(mr)^2} \, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(L\)</span> is the angular momentum of the planet. The direction of <span class="math notranslate nohighlight">\(\L\)</span> is perpendicular to the plane of the orbital motion. Substituting <span class="math notranslate nohighlight">\(v^2\)</span> into the kinetic energy of the planet, we obtain</p>
+<blockquote>
+<div><div class="math notranslate nohighlight" id="equation-gbnjthueihh">
+<span class="eqno">(198)<a class="headerlink" href="#equation-gbnjthueihh" title="Link to this equation">#</a></span>\[E = \frac12 m \left(\frac{\d r}{\d t}\right)^2 + \frac{L^2}{2mr^2} + V(r)\, .\]</div>
+</div></blockquote>
+<p>It is worth pausing at this important expression. The angular momentum <span class="math notranslate nohighlight">\(L\)</span> is conserved for any central potential <span class="math notranslate nohighlight">\(V(r)\)</span>, so <span class="math notranslate nohighlight">\(L\)</span> is just another constant in this expression. We managed to eliminate <span class="math notranslate nohighlight">\(\theta\)</span> from <span class="math notranslate nohighlight">\(E\)</span> altogether, which means that there is a one-to-one relation between <span class="math notranslate nohighlight">\(r\)</span> and <span class="math notranslate nohighlight">\(\theta\)</span>. If we know the coordinate <span class="math notranslate nohighlight">\(r\)</span> of the planet, we should be able to work out the coordinate <span class="math notranslate nohighlight">\(\theta\)</span>. Once we know <span class="math notranslate nohighlight">\(r(t)\)</span> we can deduce <span class="math notranslate nohighlight">\(\theta(t)\)</span>, and from that we can find <span class="math notranslate nohighlight">\(v_r\)</span> and <span class="math notranslate nohighlight">\(v_\theta\)</span> by differentiation. In addition, for a central potential we know that the resulting force will always be in the radial direction (we assume that the origin is chosen at the centre of mass). Hence, the acceleration of the planet will be in the direction of the centre of mass. Therefore, we have reduced the problem of planetary motion to a one-dimensional problem for <span class="math notranslate nohighlight">\(r\)</span>. It now makes sense to define a new <em>effective</em> potential that includes the angular momentum term:</p>
+<div class="math notranslate nohighlight" id="equation-kwproeiguthieojrd">
+<span class="eqno">(199)<a class="headerlink" href="#equation-kwproeiguthieojrd" title="Link to this equation">#</a></span>\[ E = \frac12 m \left(\frac{\d r}{\d t}\right)^2 + V_{\rm eff}(r) \qquad\text{with}\qquad V_{\rm eff}(r) = V(r) + \frac{L^2}{2mr^2} \, .\]</div>
+<p>The angular momentum term provides a <em>repulsive</em> potential, since it is a positive quantity, and is sometimes called the <em>centrifugal</em> potential energy. It is purely a result of describing the problem in polar coordinates instead of cartesian coordinates. This is very similar to the fictitious centrifugal force, which appeared when we described circular motion in polar coordinates. In both cases this centrifugal component is an expression of the tendency of massive bodies to move in a straight line.</p>
+<p>When we look at the case of the gravitational potential, we see that the centrifugal potential drops off faster, i.e., with <span class="math notranslate nohighlight">\(1/r^2\)</span>, than <span class="math notranslate nohighlight">\(V(r)\)</span>, which drops off with <span class="math notranslate nohighlight">\(1/r\)</span>. That means that for large distances <span class="math notranslate nohighlight">\(V(r)\)</span> is the dominant potential, but very close to the central mass the centrifugal force will dominate.</p>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture9.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Rotating rigid bodies</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture11.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Orbital mechanics</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#kinetic-energy-and-rolling-motion">Kinetic energy and rolling motion</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#scattering-problems">Scattering problems</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>

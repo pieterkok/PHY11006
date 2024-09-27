@@ -1,0 +1,648 @@
+
+<!DOCTYPE html>
+
+
+<html lang="en" data-content_root="./" >
+
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <title>Rotating rigid bodies &#8212; Mechanics</title>
+  
+  
+  
+  <script data-cfasync="false">
+    document.documentElement.dataset.mode = localStorage.getItem("mode") || "";
+    document.documentElement.dataset.theme = localStorage.getItem("theme") || "";
+  </script>
+  
+  <!-- Loaded before other Sphinx assets -->
+  <link href="_static/styles/theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/bootstrap.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+<link href="_static/styles/pydata-sphinx-theme.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+
+  
+  <link href="_static/vendor/fontawesome/6.5.2/css/all.min.css?digest=dfe6caa3a7d634c4db9b" rel="stylesheet" />
+  <link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-solid-900.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-brands-400.woff2" />
+<link rel="preload" as="font" type="font/woff2" crossorigin href="_static/vendor/fontawesome/6.5.2/webfonts/fa-regular-400.woff2" />
+
+    <link rel="stylesheet" type="text/css" href="_static/pygments.css?v=b76e3c8a" />
+    <link rel="stylesheet" type="text/css" href="_static/styles/sphinx-book-theme.css?v=a3416100" />
+    <link rel="stylesheet" type="text/css" href="_static/togglebutton.css?v=13237357" />
+    <link rel="stylesheet" type="text/css" href="_static/copybutton.css?v=76b2166b" />
+    <link rel="stylesheet" type="text/css" href="_static/mystnb.4510f1fc1dee50b3e5859aac5469c37c29e427902b24a333a5f9fcb2f0b3ac41.css?v=be8a1c11" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-thebe.css?v=4fa983c6" />
+    <link rel="stylesheet" type="text/css" href="_static/proof.css?v=ca93fcec" />
+    <link rel="stylesheet" type="text/css" href="_static/sphinx-design.min.css?v=95c83b7e" />
+  
+  <!-- Pre-loaded scripts that we'll load fully later -->
+  <link rel="preload" as="script" href="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b" />
+<link rel="preload" as="script" href="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b" />
+  <script src="_static/vendor/fontawesome/6.5.2/js/all.min.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+    <script src="_static/documentation_options.js?v=9eb32ce0"></script>
+    <script src="_static/doctools.js?v=9a2dae69"></script>
+    <script src="_static/sphinx_highlight.js?v=dc90522c"></script>
+    <script src="_static/clipboard.min.js?v=a7894cd8"></script>
+    <script src="_static/copybutton.js?v=f281be69"></script>
+    <script src="_static/scripts/sphinx-book-theme.js?v=887ef09a"></script>
+    <script>let toggleHintShow = 'Click to show';</script>
+    <script>let toggleHintHide = 'Click to hide';</script>
+    <script>let toggleOpenOnPrint = 'true';</script>
+    <script src="_static/togglebutton.js?v=4a39c7ea"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script src="_static/design-tabs.js?v=f930bc37"></script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script async="async" src="_static/sphinx-thebe.js?v=c100c467"></script>
+    <script>var togglebuttonSelector = '.toggle, .admonition.dropdown';</script>
+    <script>const THEBE_JS_URL = "https://unpkg.com/thebe@0.8.2/lib/index.js"; const thebe_selector = ".thebe,.cell"; const thebe_selector_input = "pre"; const thebe_selector_output = ".output, .cell_output"</script>
+    <script>window.MathJax = {"options": {"processHtmlClass": "tex2jax_process|mathjax_process|math|output_area"}}</script>
+    <script defer="defer" src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+    <script>DOCUMENTATION_OPTIONS.pagename = 'Lecture9';</script>
+    <link rel="index" title="Index" href="genindex.html" />
+    <link rel="search" title="Search" href="search.html" />
+    <link rel="next" title="Applications of angular momentum" href="Lecture10.html" />
+    <link rel="prev" title="Angular momentum" href="Lecture8.html" />
+  <meta name="viewport" content="width=device-width, initial-scale=1"/>
+  <meta name="docsearch:language" content="en"/>
+  </head>
+  
+  
+  <body data-bs-spy="scroll" data-bs-target=".bd-toc-nav" data-offset="180" data-bs-root-margin="0px 0px -60%" data-default-mode="">
+
+  
+  
+  <div id="pst-skip-link" class="skip-link d-print-none"><a href="#main-content">Skip to main content</a></div>
+  
+  <div id="pst-scroll-pixel-helper"></div>
+  
+  <button type="button" class="btn rounded-pill" id="pst-back-to-top">
+    <i class="fa-solid fa-arrow-up"></i>Back to top</button>
+
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-primary-sidebar-checkbox"/>
+  <label class="overlay overlay-primary" for="pst-primary-sidebar-checkbox"></label>
+  
+  <input type="checkbox"
+          class="sidebar-toggle"
+          id="pst-secondary-sidebar-checkbox"/>
+  <label class="overlay overlay-secondary" for="pst-secondary-sidebar-checkbox"></label>
+  
+  <div class="search-button__wrapper">
+    <div class="search-button__overlay"></div>
+    <div class="search-button__search-container">
+<form class="bd-search d-flex align-items-center"
+      action="search.html"
+      method="get">
+  <i class="fa-solid fa-magnifying-glass"></i>
+  <input type="search"
+         class="form-control"
+         name="q"
+         id="search-input"
+         placeholder="Search this book..."
+         aria-label="Search this book..."
+         autocomplete="off"
+         autocorrect="off"
+         autocapitalize="off"
+         spellcheck="false"/>
+  <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd>K</kbd></span>
+</form></div>
+  </div>
+
+  <div class="pst-async-banner-revealer d-none">
+  <aside id="bd-header-version-warning" class="d-none d-print-none" aria-label="Version warning"></aside>
+</div>
+
+  
+    <header class="bd-header navbar navbar-expand-lg bd-navbar d-print-none">
+    </header>
+  
+
+  <div class="bd-container">
+    <div class="bd-container__inner bd-page-width">
+      
+      
+      
+      <div class="bd-sidebar-primary bd-sidebar">
+        
+
+  
+  <div class="sidebar-header-items sidebar-primary__section">
+    
+    
+    
+    
+  </div>
+  
+    <div class="sidebar-primary-items__start sidebar-primary__section">
+        <div class="sidebar-primary-item">
+
+  
+    
+  
+
+<a class="navbar-brand logo" href="Mechanics.html">
+  
+  
+  
+  
+  
+  
+    <p class="title logo__title">Mechanics</p>
+  
+</a></div>
+        <div class="sidebar-primary-item">
+
+ <script>
+ document.write(`
+   <button class="btn search-button-field search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass"></i>
+    <span class="search-button__default-text">Search</span>
+    <span class="search-button__kbd-shortcut"><kbd class="kbd-shortcut__modifier">Ctrl</kbd>+<kbd class="kbd-shortcut__modifier">K</kbd></span>
+   </button>
+ `);
+ </script></div>
+        <div class="sidebar-primary-item"><nav class="bd-links bd-docs-nav" aria-label="Main">
+    <div class="bd-toc-item navbar-nav active">
+        
+        <ul class="nav bd-sidenav bd-sidenav__home-link">
+            <li class="toctree-l1">
+                <a class="reference internal" href="Mechanics.html">
+                    PHY11006 Mechanics
+                </a>
+            </li>
+        </ul>
+        <ul class="current nav bd-sidenav">
+<li class="toctree-l1"><a class="reference internal" href="Lecture1.html">1 Where do forces come from?</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture2.html">2 Newtons second law</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture3.html">3 Vectors</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture4.html">4 Motion in 2D and 3D</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture5.html">5 Energy and momentum</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture6.html">6 Applications I</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture7.html">7 Circular motion</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture8.html">8 Angular momentum</a></li>
+<li class="toctree-l1 current active"><a class="current reference internal" href="#">9 Rotating rigid bodies</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture10.html">10 Applications II</a></li>
+<li class="toctree-l1"><a class="reference internal" href="Lecture11.html">Orbital mechanics</a></li>
+</ul>
+
+    </div>
+</nav></div>
+    </div>
+  
+  
+  <div class="sidebar-primary-items__end sidebar-primary__section">
+  </div>
+  
+  <div id="rtd-footer-container"></div>
+
+
+      </div>
+      
+      <main id="main-content" class="bd-main" role="main">
+        
+        
+
+<div class="sbt-scroll-pixel-helper"></div>
+
+          <div class="bd-content">
+            <div class="bd-article-container">
+              
+              <div class="bd-header-article d-print-none">
+<div class="header-article-items header-article__inner">
+  
+    <div class="header-article-items__start">
+      
+        <div class="header-article-item"><button class="sidebar-toggle primary-toggle btn btn-sm" title="Toggle primary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+  <span class="fa-solid fa-bars"></span>
+</button></div>
+      
+    </div>
+  
+  
+    <div class="header-article-items__end">
+      
+        <div class="header-article-item">
+
+<div class="article-header-buttons">
+
+
+
+
+
+<div class="dropdown dropdown-source-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Source repositories">
+    <i class="fab fa-github"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book" target="_blank"
+   class="btn btn-sm btn-source-repository-button dropdown-item"
+   title="Source repository"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fab fa-github"></i>
+  </span>
+<span class="btn__text-container">Repository</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li><a href="https://github.com/executablebooks/jupyter-book/issues/new?title=Issue%20on%20page%20%2FLecture9.html&body=Your%20issue%20content%20here." target="_blank"
+   class="btn btn-sm btn-source-issues-button dropdown-item"
+   title="Open an issue"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-lightbulb"></i>
+  </span>
+<span class="btn__text-container">Open issue</span>
+</a>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+
+
+<div class="dropdown dropdown-download-buttons">
+  <button class="btn dropdown-toggle" type="button" data-bs-toggle="dropdown" aria-expanded="false" aria-label="Download this page">
+    <i class="fas fa-download"></i>
+  </button>
+  <ul class="dropdown-menu">
+      
+      
+      
+      <li><a href="_sources/Lecture9.ipynb" target="_blank"
+   class="btn btn-sm btn-download-source-button dropdown-item"
+   title="Download source file"
+   data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file"></i>
+  </span>
+<span class="btn__text-container">.ipynb</span>
+</a>
+</li>
+      
+      
+      
+      
+      <li>
+<button onclick="window.print()"
+  class="btn btn-sm btn-download-pdf-button dropdown-item"
+  title="Print to PDF"
+  data-bs-placement="left" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-file-pdf"></i>
+  </span>
+<span class="btn__text-container">.pdf</span>
+</button>
+</li>
+      
+  </ul>
+</div>
+
+
+
+
+<button onclick="toggleFullScreen()"
+  class="btn btn-sm btn-fullscreen-button"
+  title="Fullscreen mode"
+  data-bs-placement="bottom" data-bs-toggle="tooltip"
+>
+  
+
+<span class="btn__icon-container">
+  <i class="fas fa-expand"></i>
+  </span>
+
+</button>
+
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm nav-link pst-navbar-icon theme-switch-button" title="light/dark" aria-label="light/dark" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="theme-switch fa-solid fa-sun fa-lg" data-mode="light"></i>
+    <i class="theme-switch fa-solid fa-moon fa-lg" data-mode="dark"></i>
+    <i class="theme-switch fa-solid fa-circle-half-stroke fa-lg" data-mode="auto"></i>
+  </button>
+`);
+</script>
+
+
+<script>
+document.write(`
+  <button class="btn btn-sm pst-navbar-icon search-button search-button__button" title="Search" aria-label="Search" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <i class="fa-solid fa-magnifying-glass fa-lg"></i>
+  </button>
+`);
+</script>
+<button class="sidebar-toggle secondary-toggle btn btn-sm" title="Toggle secondary sidebar" data-bs-placement="bottom" data-bs-toggle="tooltip">
+    <span class="fa-solid fa-list"></span>
+</button>
+</div></div>
+      
+    </div>
+  
+</div>
+</div>
+              
+              
+
+<div id="jb-print-docs-body" class="onlyprint">
+    <h1>Rotating rigid bodies</h1>
+    <!-- Table of contents -->
+    <div id="print-main-content">
+        <div id="jb-print-toc">
+            
+            <div>
+                <h2> Contents </h2>
+            </div>
+            <nav aria-label="Page">
+                <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-bodies-and-the-moment-of-inertia">Rigid bodies and the moment of inertia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-moment-of-inertia">Calculating the moment of inertia</a></li>
+</ul>
+            </nav>
+        </div>
+    </div>
+</div>
+
+              
+                
+<div id="searchbox"></div>
+                <article class="bd-article">
+                  
+  <p><span class="math notranslate nohighlight">\(\renewcommand{\a}{\mathbf{a}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\b}{\mathbf{b}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\c}{\mathbf{c}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\g}{\mathbf{g}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\x}{\mathbf{x}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\y}{\mathbf{y}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\z}{\mathbf{z}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\r}{\mathbf{r}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\v}{\mathbf{v}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\u}{\mathbf{u}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\kk}{\mathbf{k}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\p}{\mathbf{p}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\m}{\mathbf{m}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\d}{\mathrm{d}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\e}{\mathrm{e}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\A}{\mathbf{A}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\B}{\mathbf{B}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\D}{\mathbf{D}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\E}{\mathbf{E}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\J}{\mathbf{J}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\F}{\mathbf{F}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\M}{\mathbf{M}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\H}{\mathbf{H}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\P}{\mathbf{P}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\R}{\mathbf{R}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\l}{\mathbf{l}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\S}{\mathbf{S}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\V}{\mathbf{V}}\)</span>
+<span class="math notranslate nohighlight">\(\renewcommand{\L}{\mathbf{L}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\ms}{\;\text{m}\;\text{s}^{-1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\mss}{\;\text{m}\;\text{s}^{-2}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\DeclareMathOperator{\sinc}{sinc}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\kopje}[2]{\vskip0.5em\noindent\textbf{\textsf{{\color{OliveDrab}{Week #1}:}~ #2}}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\homework}[1]{\noindent{\color{FireBrick}{\textbf{\textsf{Homework:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\tutorial}[1]{\noindent{\color{SteelBlue}{\textbf{\textsf{Tutorial:}}} #1}}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\problems}[1]{\noindent{\color{LightSlateGrey}{\textbf{\textsf{Weekly problems:}}} #1}}\)</span></p>
+<p><span class="math notranslate nohighlight">\(\newcommand{\af}[1]{[A\&amp;F: #1]}\)</span>
+<span class="math notranslate nohighlight">\(\newcommand{\basis}[1]{\hat{\text{e}}_{#1}}\)</span></p>
+<section id="rotating-rigid-bodies">
+<h1>Rotating rigid bodies<a class="headerlink" href="#rotating-rigid-bodies" title="Link to this heading">#</a></h1>
+<section id="rigid-bodies-and-the-moment-of-inertia">
+<h2>Rigid bodies and the moment of inertia<a class="headerlink" href="#rigid-bodies-and-the-moment-of-inertia" title="Link to this heading">#</a></h2>
+<p>A rigid body is a body that has some finite extended shape—so not a point particle, but a shape that does not deform under reasonable forces. When we want to describe the motion of such bodies, particularly rotations, their shape becomes important. As an example, consider a uniform solid cylinder with height <span class="math notranslate nohighlight">\(h\)</span>, radius <span class="math notranslate nohighlight">\(R\)</span>, and mass <span class="math notranslate nohighlight">\(M\)</span>. We can set it to rotate with angular velocity <span class="math notranslate nohighlight">\(\omega\)</span> around its symmetry axis, namely the axis through the centre perpendicular to the circular cross section. This requires a torque, and the rotating cylinder has some angular momentum <span class="math notranslate nohighlight">\(L\)</span> relative to the origin at the centre of mass that lies on the rotation axis. The direction of <span class="math notranslate nohighlight">\(L\)</span> is along the rotation axis.</p>
+<p>Next, consider a <em>hollow</em> cylinder with otherwise identical specs: height <span class="math notranslate nohighlight">\(h\)</span>, radius <span class="math notranslate nohighlight">\(R\)</span>, and mass <span class="math notranslate nohighlight">\(M\)</span>. Now all the mass is concentrated in the outside layer. For simplicity we assume that the end caps are also hollow, so the object is a tube or pipe. When we set this object spinning around the same axis with the same angular velocity <span class="math notranslate nohighlight">\(\omega\)</span>, does this object gain the same angular momentum as the solid cylinder? You may already intuit that the answer has to be `no’. The solid cylinder has some of its mass closer to the rotation axis, requiring a smaller <span class="math notranslate nohighlight">\(\r\)</span> in <span class="math notranslate nohighlight">\(\L=\r\times\p\)</span>, and a correspondingly lower tangential velocity <span class="math notranslate nohighlight">\(\v\)</span>. We need to find out how we can calculate this.</p>
+<p>We can think of a rigid body as a collection of small masses put together. Each of these masses <span class="math notranslate nohighlight">\(m_j\)</span> has its own angular momentum</p>
+<div class="amsmath math notranslate nohighlight" id="equation-0f99f29f-8f2c-4f02-8d2e-2c97ce99d450">
+<span class="eqno">(177)<a class="headerlink" href="#equation-0f99f29f-8f2c-4f02-8d2e-2c97ce99d450" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \L_j = m_j r_j^2 \vec{\omega}\, .
+\end{align}\]</div>
+<p>For simplicity, assume that <span class="math notranslate nohighlight">\( \vec{\omega}\)</span> is pointing in the <span class="math notranslate nohighlight">\(z\)</span>-direction. Then <span class="math notranslate nohighlight">\(L_j = m_j r_j^2 \omega\)</span>. Note that <span class="math notranslate nohighlight">\(\omega\)</span> does not depend on <span class="math notranslate nohighlight">\(j\)</span>; all elements move at the same angular velocity. This is what makes it a rigid body. When we put all the small masses together, the total angular momentum is the sum of all the individual angular momenta:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-35985784-b8e8-4e19-874b-cc06bcf186aa">
+<span class="eqno">(178)<a class="headerlink" href="#equation-35985784-b8e8-4e19-874b-cc06bcf186aa" title="Permalink to this equation">#</a></span>\[\begin{align}
+ L = \sum_j L_j = \left(\sum_j m_j r_j^2\right) \omega \equiv I\omega\, .
+\end{align}\]</div>
+<p>Here we defined a new quantity, the <em>moment of inertia</em> <span class="math notranslate nohighlight">\(I\)</span> that captures the effect of the shape of the rotating object on the angular momentum.</p>
+<blockquote>
+<div><h4 class="rubric" id="example-1-the-figure-skater">Example 1: <em>The figure skater</em></h4>
+<p>You have likely seen the effect of a spinning ice skater who pulls in her arms to spin faster. We can easily explain this effect using the changing moment of inertia. In its most basic form, the angular momentum of the skater is conserved, since there are no torques acting on her. When she has her arms spread wide, the angular momentum is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-a9485c66-5a14-4ca2-8d9c-39a03134c0f5">
+<span class="eqno">(179)<a class="headerlink" href="#equation-a9485c66-5a14-4ca2-8d9c-39a03134c0f5" title="Permalink to this equation">#</a></span>\[\begin{align}
+  L = I_{\rm wide} \omega_{\rm wide}\, ,
+ \end{align}\]</div>
+<p>and when she has her arms tucked in close, her angular momentum is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c4812cae-bc07-4c9f-8921-c25e979042c5">
+<span class="eqno">(180)<a class="headerlink" href="#equation-c4812cae-bc07-4c9f-8921-c25e979042c5" title="Permalink to this equation">#</a></span>\[\begin{align}
+  L = I_{\rm close} \omega_{\rm close}\, .
+ \end{align}\]</div>
+<p>Conservation of angular momentum then determines that</p>
+<div class="amsmath math notranslate nohighlight" id="equation-c3c74e95-5cc1-4073-9c41-ee72729e68d3">
+<span class="eqno">(181)<a class="headerlink" href="#equation-c3c74e95-5cc1-4073-9c41-ee72729e68d3" title="Permalink to this equation">#</a></span>\[\begin{align}
+  I_{\rm wide} \omega_{\rm wide} = I_{\rm close} \omega_{\rm close} \qquad\text{or}\qquad \omega_{\rm close} = \frac{I_{\rm wide}}{I_{\rm close}} \omega_{\rm wide}\, .
+ \end{align}\]</div>
+<p>When <span class="math notranslate nohighlight">\(I_{\rm wide} &gt; I_{\rm close}\)</span>, the angular velocity <span class="math notranslate nohighlight">\( \omega_{\rm close}\)</span> <em>increases</em>.</p>
+</div></blockquote>
+<p>Before we calculate <span class="math notranslate nohighlight">\(I\)</span> for a variety of shapes, consider the parallels between <span class="math notranslate nohighlight">\(\p = m\v\)</span> and <span class="math notranslate nohighlight">\(\L = I \vec{\omega}\)</span>. Both <span class="math notranslate nohighlight">\(\p\)</span> and <span class="math notranslate nohighlight">\(\L\)</span> measure the amount of motion of a body, linear and rotational, respectively. The linear and angular velocities <span class="math notranslate nohighlight">\(\v\)</span> and <span class="math notranslate nohighlight">\(\vec{\omega}\)</span> also clearly play analogous roles. This suggests an interpretation of <span class="math notranslate nohighlight">\(I\)</span> by analogy. Recall that <span class="math notranslate nohighlight">\(m\)</span> is the inertial mass, i.e., the resistance of a body to change its (linear) motion. Similarly, <span class="math notranslate nohighlight">\(I\)</span> is the resistance of a rigid body to a change in rotational motion. Hence the name `moment of <em>inertia</em>’.</p>
+</section>
+<section id="calculating-the-moment-of-inertia">
+<h2>Calculating the moment of inertia<a class="headerlink" href="#calculating-the-moment-of-inertia" title="Link to this heading">#</a></h2>
+<p>For a collection of particles with mass <span class="math notranslate nohighlight">\(m_j\)</span> that all rotate around the same axis with angular velocity <span class="math notranslate nohighlight">\(\omega\)</span>, the moment of inertia is immediately calculated by summing the masses times the distance-squared to the rotation axis:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-138bdbe0-f933-4118-b0d7-ce645cd48b0b">
+<span class="eqno">(182)<a class="headerlink" href="#equation-138bdbe0-f933-4118-b0d7-ce645cd48b0b" title="Permalink to this equation">#</a></span>\[\begin{align}
+ I = \sum_j m_j r_j^2\, .
+\end{align}\]</div>
+<p>Things become a bit more involved when we have a solid body like a disk, cylinder or sphere. Let’s assume that the density of the object at a position <span class="math notranslate nohighlight">\(\r\)</span> is given by <span class="math notranslate nohighlight">\(\rho(\r)\)</span>. Then a `small mass’ can be put in infinitesimal form as</p>
+<div class="amsmath math notranslate nohighlight" id="equation-ee65eb00-0d6e-4962-85c0-b1fe60dd189e">
+<span class="eqno">(183)<a class="headerlink" href="#equation-ee65eb00-0d6e-4962-85c0-b1fe60dd189e" title="Permalink to this equation">#</a></span>\[\begin{align}
+ \d m (\r) = \rho(\r) \d V\, ,
+\end{align}\]</div>
+<p>where <span class="math notranslate nohighlight">\(\d V\)</span> is an infinitesimal volume around the position <span class="math notranslate nohighlight">\(\r\)</span>. Summation now becomes integration (the summing of tiny bits!), and we can write for the moment of inertia:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-947e7484-2d13-48bc-be60-f46bdcd1ab68">
+<span class="eqno">(184)<a class="headerlink" href="#equation-947e7484-2d13-48bc-be60-f46bdcd1ab68" title="Permalink to this equation">#</a></span>\[\begin{align}
+ I = \int r^2\, \d m = \int \rho(\r)\, r^2\, \d V\, .
+\end{align}\]</div>
+<p>Note that we take <span class="math notranslate nohighlight">\(r\)</span> as the distance to the rotation axis, not the actual distance from <span class="math notranslate nohighlight">\(\d m\)</span> to the origin (so cylindrical coordinates would be convenient here), since <span class="math notranslate nohighlight">\(\L = \r\times\p\)</span> means that we need to take only the part of <span class="math notranslate nohighlight">\(\r\)</span> that is perpendicular to <span class="math notranslate nohighlight">\(\L\)</span>. And given that <span class="math notranslate nohighlight">\(\L\)</span> lies along the rotation axis, only the component perpendicular to the rotation axis contributes to <span class="math notranslate nohighlight">\(I\)</span>.</p>
+<blockquote>
+<div><h4 class="rubric" id="example-2-the-moment-of-inertia-for-a-ring">Example 2: <em>The moment of inertia for a ring</em></h4>
+<p>Consider a thin ring of radius <span class="math notranslate nohighlight">\(a\)</span> and uniform mass distribution, rotating around its symmetry axis. Since the mass is concentrated in a one-dimensional circle, we can write <span class="math notranslate nohighlight">\(\rho = M/2\pi a\)</span>. The sum over all masses then becomes the integral around the ring over an angle between 0 and <span class="math notranslate nohighlight">\(2\pi\)</span>, where all radii are equal to <span class="math notranslate nohighlight">\(a\)</span>:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1351c646-0ba8-4354-b29d-35bdfbf5aa8b">
+<span class="eqno">(185)<a class="headerlink" href="#equation-1351c646-0ba8-4354-b29d-35bdfbf5aa8b" title="Permalink to this equation">#</a></span>\[\begin{align}
+ I_{\rm ring} = \int_0^{2\pi} \rho a^2\, a\, \d \theta = \int_0^{2\pi} \frac{M a^2}{2\pi}\, \d \theta = Ma^2\, .
+\end{align}\]</div>
+<p>Note that the integral around the ring is equivalent to summing over infinitesimal lengths <span class="math notranslate nohighlight">\(a\d\theta\)</span>. Also, this is the same moment of inertia as for a point mass <span class="math notranslate nohighlight">\(M\)</span> a distance <span class="math notranslate nohighlight">\(a\)</span> from the rotation axis. Therefore, how the mass is distributed around the circle does not seem to matter. Can you prove this mathematically with a general mass distribution <span class="math notranslate nohighlight">\(\rho(\theta)\)</span>?</p>
+</div></blockquote>
+<blockquote>
+<div><h4 class="rubric" id="example-3-the-moment-of-inertia-for-a-disk">Example 3: <em>The moment of inertia for a disk</em></h4>
+<p>We can use the moment of inertia of a ring <span class="math notranslate nohighlight">\(I_{\rm ring} = Ma^2\)</span> to calculate the moment of inertia of a disk rotating around its symmetry axis. Remember that calculating the moment of inertia is like summing lots of small parts. We can think of the disk as a collection of thin rings that we need to sum. Each ring has an area <span class="math notranslate nohighlight">\(2\pi r \d r\)</span>, and the mass in this ring is the area times the mass density per area, <span class="math notranslate nohighlight">\(\sigma = M/\pi a^2\)</span>. Summing these rings together then amounts to the integral</p>
+<div class="amsmath math notranslate nohighlight" id="equation-93595639-9907-44e5-8daf-fe1ac39851fc">
+<span class="eqno">(186)<a class="headerlink" href="#equation-93595639-9907-44e5-8daf-fe1ac39851fc" title="Permalink to this equation">#</a></span>\[\begin{align}
+ I_{\rm disk} = \int_0^a r^2 \d m(r) = \int_0^a r^2 \frac{M}{\pi a^2} 2\pi r\, \d r = \frac{2M}{a^2} \int_0^a r^3\, \d r = \frac12 Ma^2\, .
+\end{align}\]</div>
+<p>From this you see that the moment of inertia of a ring is larger than the moment of inertia of a disk, if both have the same mass.</p>
+</div></blockquote>
+<blockquote>
+<div><h4 class="rubric" id="example-4-circling-bodies">Example 4: <em>Circling bodies</em></h4>
+<p>Consider two masses, a distance <span class="math notranslate nohighlight">\(d\)</span> apart, rotating around their centre of mass in circular orbits. This could for example be a planet of mass <span class="math notranslate nohighlight">\(m\)</span> orbiting a star of mass <span class="math notranslate nohighlight">\(M\)</span>, or a binary star system. We make no assumptions about which mass is bigger. The distances of <span class="math notranslate nohighlight">\(m\)</span> and <span class="math notranslate nohighlight">\(M\)</span> to the centre of mass are:</p>
+<div class="amsmath math notranslate nohighlight" id="equation-96c85c76-18c1-46a7-868a-b5d652bd9e0c">
+<span class="eqno">(187)<a class="headerlink" href="#equation-96c85c76-18c1-46a7-868a-b5d652bd9e0c" title="Permalink to this equation">#</a></span>\[\begin{align}
+  r_m = \frac{Md}{m+M} \qquad\text{and}\qquad r_M = \frac{md}{m+M} \, .
+ \end{align}\]</div>
+<p>We consider only the magnitudes of <span class="math notranslate nohighlight">\(\r_m\)</span> and <span class="math notranslate nohighlight">\(\r_M\)</span> here. The moment of inertia for this system is</p>
+<div class="amsmath math notranslate nohighlight" id="equation-1f8d5d7a-73f9-4204-a081-ac5f94b4f0d1">
+<span class="eqno">(188)<a class="headerlink" href="#equation-1f8d5d7a-73f9-4204-a081-ac5f94b4f0d1" title="Permalink to this equation">#</a></span>\[\begin{align}
+  I = m r_m^2 + M r_M^2 = \frac{m M^2 d^2}{(m+M)^2} + \frac{M m^2 d^2}{(m+M)^2} = \frac{mM d^2}{m+M} \equiv \mu d^2\, ,
+ \end{align}\]</div>
+<p>where we again encountered the reduced mass <span class="math notranslate nohighlight">\(\mu\)</span> for two masses. It is like a single mass <span class="math notranslate nohighlight">\(\mu\)</span> rotating around a circle with radius <span class="math notranslate nohighlight">\(d\)</span>.</p>
+</div></blockquote>
+</section>
+</section>
+
+    <script type="text/x-thebe-config">
+    {
+        requestKernel: true,
+        binderOptions: {
+            repo: "binder-examples/jupyter-stacks-datascience",
+            ref: "master",
+        },
+        codeMirrorConfig: {
+            theme: "abcdef",
+            mode: "python"
+        },
+        kernelOptions: {
+            name: "python3",
+            path: "./."
+        },
+        predefinedOutput: true
+    }
+    </script>
+    <script>kernelName = 'python3'</script>
+
+                </article>
+              
+
+              
+              
+              
+              
+                <footer class="prev-next-footer d-print-none">
+                  
+<div class="prev-next-area">
+    <a class="left-prev"
+       href="Lecture8.html"
+       title="previous page">
+      <i class="fa-solid fa-angle-left"></i>
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">previous</p>
+        <p class="prev-next-title">Angular momentum</p>
+      </div>
+    </a>
+    <a class="right-next"
+       href="Lecture10.html"
+       title="next page">
+      <div class="prev-next-info">
+        <p class="prev-next-subtitle">next</p>
+        <p class="prev-next-title">Applications of angular momentum</p>
+      </div>
+      <i class="fa-solid fa-angle-right"></i>
+    </a>
+</div>
+                </footer>
+              
+            </div>
+            
+            
+              
+                <div class="bd-sidebar-secondary bd-toc"><div class="sidebar-secondary-items sidebar-secondary__inner">
+
+
+  <div class="sidebar-secondary-item">
+  <div class="page-toc tocsection onthispage">
+    <i class="fa-solid fa-list"></i> Contents
+  </div>
+  <nav class="bd-toc-nav page-toc">
+    <ul class="visible nav section-nav flex-column">
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#rigid-bodies-and-the-moment-of-inertia">Rigid bodies and the moment of inertia</a></li>
+<li class="toc-h2 nav-item toc-entry"><a class="reference internal nav-link" href="#calculating-the-moment-of-inertia">Calculating the moment of inertia</a></li>
+</ul>
+  </nav></div>
+
+</div></div>
+              
+            
+          </div>
+          <footer class="bd-footer-content">
+            
+<div class="bd-footer-content__inner container">
+  
+  <div class="footer-item">
+    
+<p class="component-author">
+By PK
+</p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+
+  <p class="copyright">
+    
+      © Copyright 2024.
+      <br/>
+    
+  </p>
+
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+  <div class="footer-item">
+    
+  </div>
+  
+</div>
+          </footer>
+        
+
+      </main>
+    </div>
+  </div>
+  
+  <!-- Scripts loaded after <body> so the DOM is not blocked -->
+  <script src="_static/scripts/bootstrap.js?digest=dfe6caa3a7d634c4db9b"></script>
+<script src="_static/scripts/pydata-sphinx-theme.js?digest=dfe6caa3a7d634c4db9b"></script>
+
+  <footer class="bd-footer">
+  </footer>
+  </body>
+</html>
